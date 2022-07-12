@@ -1,5 +1,5 @@
-import { flat } from '../../../utils/flat'
 import { RecordJSON } from '../../interfaces'
+import { flat } from '../../utils_/flat'
 
 /**
  * HOF returning a function which takes a record and returns an updated record.

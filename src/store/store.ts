@@ -1,28 +1,18 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { combineReducers, createStore } from 'redux'
 import type { useLocation } from 'react-router'
+import { combineReducers, createStore } from 'redux'
 import {
-  VERSIONS_INITIALIZE,
-  SESSION_INITIALIZE,
-  DASHBOARD_INITIALIZE,
-  PATHS_INITIALIZE,
-  ASSETS_INITIALIZE,
-  BRANDING_INITIALIZE,
-  LOCALE_INITIALIZE,
-  PAGES_INITIALIZE,
-  RESOURCES_INITIALIZE,
-  SET_NOTICE_PROGRESS,
-  DROP_NOTICE,
-  ADD_NOTICE,
-  ROUTE_CHANGED,
-  INITIAL_ROUTE } from './actions'
+  ADD_NOTICE, ASSETS_INITIALIZE,
+  BRANDING_INITIALIZE, DASHBOARD_INITIALIZE, DROP_NOTICE, INITIAL_ROUTE, LOCALE_INITIALIZE,
+  PAGES_INITIALIZE, PATHS_INITIALIZE, RESOURCES_INITIALIZE, ROUTE_CHANGED, SESSION_INITIALIZE, SET_NOTICE_PROGRESS, VERSIONS_INITIALIZE
+} from './actions'
 
 import { Assets, BrandingOptions, VersionProps } from '../../adminjs-options.interface'
-import { PageJSON, ResourceJSON } from '../interfaces'
-import { DEFAULT_PATHS } from '../../constants'
 import { CurrentAdmin } from '../../current-admin.interface'
 import { Locale } from '../../locale/config'
 import { NoticeMessage } from '../hoc/with-notice'
+import { PageJSON, ResourceJSON } from '../interfaces'
+import { DEFAULT_PATHS } from './../constants'
 
 export type DashboardInState = {
   component?: string;

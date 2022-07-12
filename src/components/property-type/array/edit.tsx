@@ -1,13 +1,13 @@
+import { Box, Button, FormGroup, FormMessage, Icon, Section } from '@adminjs/design-system'
 import React, { MouseEvent, useCallback } from 'react'
-import { Button, Section, FormGroup, FormMessage, Icon, Box } from '@adminjs/design-system'
-import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautiful-dnd'
+import { DragDropContext, Draggable, Droppable, DropResult } from 'react-beautiful-dnd'
 
-import AddNewItemButton from './add-new-item-translation'
-import { flat } from '../../../../utils'
+import { PropertyJSON } from '../../../interfaces'
+import { flat } from '../../../utils'
 import { EditPropertyPropsInArray } from '../base-property-props'
 import { PropertyLabel } from '../utils/property-label'
+import AddNewItemButton from './add-new-item-translation'
 import { convertToSubProperty } from './convert-to-sub-property'
-import { PropertyJSON } from '../../../interfaces'
 import { removeSubProperty } from './remove-sub-property'
 
 type EditProps = Required<EditPropertyPropsInArray>

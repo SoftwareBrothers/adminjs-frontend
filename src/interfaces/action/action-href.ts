@@ -1,4 +1,4 @@
-import { RecordActionParams, ViewHelpers } from '../../../backend/utils/view-helpers'
+import { RecordActionParams, ViewHelpers } from '../../backend/utils/view-helpers'
 import { DifferentActionParams } from '../../hooks'
 import { ActionJSON } from './action-json.interface'
 

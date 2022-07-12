@@ -1,13 +1,13 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 import { AxiosResponse } from 'axios'
-import { useLocation, useHistory } from 'react-router'
-import { RecordJSON } from '../../interfaces'
-import useNotice from '../use-notice'
-import ApiClient from '../../utils/api-client'
+import { useHistory, useLocation } from 'react-router'
 import { ListActionResponse } from '../../../backend/actions/list/list-action'
-import { useTranslation } from '../use-translation'
 import { hasForceRefresh, removeForceRefresh } from '../../components/actions/utils/append-force-refresh'
+import { RecordJSON } from '../../interfaces'
+import ApiClient from '../../utils/api-client'
+import useNotice from '../use-notice'
+import { useTranslation } from '../use-translation'
 import { UseRecordsResult } from './use-records-result.type'
 
 const api = new ApiClient()

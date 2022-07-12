@@ -1,10 +1,12 @@
 import React, { ReactNode } from 'react'
-import { NavLink, withRouter } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
+import { cssClass, Icon } from '@adminjs/design-system'
 import { RouteComponentProps } from 'react-router'
-import { Icon, cssClass } from '@adminjs/design-system'
 
 import { BasePropertyJSON } from '../../interfaces'
+
+import withRouter from '../../_tmp/with-router'
 
 
 export type SortLinkProps = {

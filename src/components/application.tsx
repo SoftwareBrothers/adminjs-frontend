@@ -1,19 +1,17 @@
 /* eslint-disable react/no-children-prop */
-import React, { useEffect, useState } from 'react'
-import { Switch, Route } from 'react-router-dom'
-import { createGlobalStyle } from 'styled-components'
 import { Box, Overlay, Reset } from '@adminjs/design-system'
+import React, { useEffect, useState } from 'react'
+import { Route, Switch } from 'react-router-dom'
+import { createGlobalStyle } from 'styled-components'
 
 import { useLocation } from 'react-router'
-import ViewHelpers from '../../backend/utils/view-helpers/view-helpers'
+import ViewHelpers from '../backend/utils/view-helpers/view-helpers'
+import Notice from './app/notice'
 import Sidebar from './app/sidebar/sidebar'
 import TopBar from './app/top-bar'
-import Notice from './app/notice'
 
-import {
-  Dashboard, ResourceAction, RecordAction, Page, BulkAction, Resource,
-} from './routes'
 import useHistoryListen from '../hooks/use-history-listen'
+import { BulkAction, Dashboard, Page, RecordAction, Resource, ResourceAction } from './routes'
 
 const GlobalStyle = createGlobalStyle`
   html, body, #app {

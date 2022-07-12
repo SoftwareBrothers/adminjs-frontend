@@ -5,7 +5,7 @@ import { Loader } from '@adminjs/design-system'
 
 import BaseActionComponent from '../app/base-action-component'
 import ApiClient from '../../utils/api-client'
-import { RecordActionParams } from '../../../backend/utils/view-helpers/view-helpers'
+import { RecordActionParams } from '../backend/utils/view-helpers/view-helpers'
 import { ActionJSON, RecordJSON } from '../../interfaces'
 import { NoResourceError, NoActionError, NoRecordError } from '../app/error-message'
 import Wrapper from './utils/wrapper'

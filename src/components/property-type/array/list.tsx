@@ -1,9 +1,9 @@
 import React from 'react'
 
 import { useTranslation } from '../../../hooks/use-translation'
-import { flat } from '../../../../utils'
-import { RecordJSON, ResourceJSON, PropertyJSON } from '../../../interfaces'
+import { PropertyJSON, RecordJSON, ResourceJSON } from '../../../interfaces'
 import { ShowPropertyProps } from '../base-property-props'
+import { flat } from './../../../utils_'
 
 interface Props {
   property: PropertyJSON;

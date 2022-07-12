@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Loader } from '@adminjs/design-system'
 import { useRouteMatch, useLocation } from 'react-router'
 
-import { BulkActionParams } from '../../../backend/utils/view-helpers/view-helpers'
+import { BulkActionParams } from '../backend/utils/view-helpers/view-helpers'
 
 import ApiClient from '../../utils/api-client'
 import getBulkActionsFromRecords from '../app/records-table/utils/get-bulk-actions-from-records'

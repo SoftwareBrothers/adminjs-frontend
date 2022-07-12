@@ -1,5 +1,5 @@
-import { flat } from '../../../../utils'
 import { RecordJSON } from '../../../interfaces'
+import { flat } from '../../../utils_'
 
 /**
  * Removes selected array item from given record. It performs following tasks:

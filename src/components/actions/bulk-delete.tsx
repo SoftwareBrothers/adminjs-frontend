@@ -1,18 +1,17 @@
+import { Button, DrawerContent, DrawerFooter, Icon, MessageBox, Table, TableBody, TableCell, TableRow, Text } from '@adminjs/design-system'
 import React, { useState } from 'react'
-import {
-  Table, TableBody, TableRow, TableCell, Text,
-  DrawerContent, DrawerFooter, Button, MessageBox, Icon,
-} from '@adminjs/design-system'
 
-import { RouteComponentProps, withRouter } from 'react-router'
+import { RouteComponentProps } from 'react-router'
+import withNotice, { AddNoticeProps } from '../../hoc/with-notice'
+import ApiClient from '../../utils/api-client'
 import PropertyType from '../property-type'
 import { ActionProps } from './action.props'
-import ApiClient from '../../utils/api-client'
-import withNotice, { AddNoticeProps } from '../../hoc/with-notice'
 import { appendForceRefresh } from './utils/append-force-refresh'
 
-import ActionHeader from '../app/action-header/action-header'
 import { useTranslation } from '../../hooks'
+import ActionHeader from '../app/action-header/action-header'
+
+import withRouter from '../../_tmp/with-router'
 
 /**
  * @name ShowAction

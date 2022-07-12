@@ -1,12 +1,12 @@
+import { Link, MessageBox } from '@adminjs/design-system'
 import React from 'react'
 import { Trans } from 'react-i18next'
-import { MessageBox, Link } from '@adminjs/design-system'
 
-import ErrorBoundary from './error-boundary'
-import { actions } from '../actions'
-import { DOCS } from '../../../constants'
-import { ActionProps } from '../actions/action.props'
 import { useTranslation } from '../../hooks'
+import { actions } from '../actions'
+import { ActionProps } from '../actions/action.props'
+import { DOCS } from './../../constants'
+import ErrorBoundary from './error-boundary'
 
 declare const AdminJS: {
   UserComponents: Array<string>;

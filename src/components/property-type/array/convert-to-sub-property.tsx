@@ -1,5 +1,5 @@
-import { DELIMITER } from '../../../../utils/flat/constants'
 import { PropertyJSON } from '../../../interfaces'
+import { DELIMITER } from './../../../utils_/flat/constants'
 
 /**
  * Converts property: PropertyJSON from an array to a sub-property for an actual item in the array

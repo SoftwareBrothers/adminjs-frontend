@@ -1,4 +1,7 @@
+lib/
+types/
 .DS_Store
+.nova/
 # Logs
 logs
 *.log

@@ -1,11 +1,11 @@
+import { cssClass, themeGet } from '@adminjs/design-system'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import { cssClass, themeGet } from '@adminjs/design-system'
 
-import ViewHelpers from '../../../../backend/utils/view-helpers/view-helpers'
 import { BrandingOptions } from '../../../../adminjs-options.interface'
 import allowOverride from '../../../hoc/allow-override'
+import ViewHelpers from '../../../view-helpers/view-helpers'
 
 type Props = {
   branding: BrandingOptions;

@@ -1,18 +1,16 @@
+import { Box } from '@adminjs/design-system'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { useRouteMatch } from 'react-router-dom'
-import { Box } from '@adminjs/design-system'
 
 import { RouteComponentProps } from 'react-router'
-import BaseAction from '../app/base-action-component'
-import FilterDrawer from '../app/filter-drawer'
-import { ReduxState } from '../../store/store'
-import { NoResourceError, NoActionError } from '../app/error-message'
-import ViewHelpers, {
-  ResourceActionParams, RecordActionParams, BulkActionParams,
-} from '../../../backend/utils/view-helpers/view-helpers'
-import { ActionHeader } from '../app'
 import { ActionJSON, ResourceJSON } from '../../interfaces'
+import { ReduxState } from '../../store/store'
+import { ActionHeader } from '../app'
+import BaseAction from '../app/base-action-component'
+import { NoActionError, NoResourceError } from '../app/error-message'
+import FilterDrawer from '../app/filter-drawer'
+import ViewHelpers, { BulkActionParams, RecordActionParams, ResourceActionParams } from './../../backend/utils/view-helpers/view-helpers'
 
 type PropsFromState = {
   resources: Array<ResourceJSON>;

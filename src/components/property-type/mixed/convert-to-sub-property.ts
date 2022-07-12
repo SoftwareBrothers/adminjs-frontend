@@ -1,5 +1,5 @@
-import { DELIMITER } from '../../../../utils/flat/constants'
-import { PropertyJSON, BasePropertyJSON } from '../../../interfaces'
+import { BasePropertyJSON, PropertyJSON } from '../../../interfaces'
+import { DELIMITER } from './../../../utils_/flat/constants'
 
 export function convertToSubProperty(
   property: PropertyJSON,

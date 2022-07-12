@@ -1,7 +1,7 @@
+import { DatePicker, FormGroup, Label } from '@adminjs/design-system'
 import React from 'react'
-import { FormGroup, Label, DatePicker } from '@adminjs/design-system'
 
-import * as BackendFilter from '../../../../backend/utils/filter/filter'
+import * as BackendFilter from '../../../backend/utils/filter/filter'
 import { useTranslation } from '../../../hooks/use-translation'
 import { FilterPropertyProps } from '../base-property-props'
 

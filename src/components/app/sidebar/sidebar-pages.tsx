@@ -1,10 +1,10 @@
-import React from 'react'
 import { Navigation, NavigationElementProps } from '@adminjs/design-system'
+import React from 'react'
 
 import { useHistory, useLocation } from 'react-router'
-import ViewHelpers from '../../../../backend/utils/view-helpers/view-helpers'
 import { useTranslation } from '../../../hooks/use-translation'
 import { ReduxState } from '../../../store/store'
+import ViewHelpers from '../../../view-helpers/view-helpers'
 
 type Props = {
   pages?: ReduxState['pages'];

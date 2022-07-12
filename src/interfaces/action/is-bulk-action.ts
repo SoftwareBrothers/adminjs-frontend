@@ -1,4 +1,4 @@
-import { BulkActionParams } from '../../../backend/utils/view-helpers/view-helpers'
+import { BulkActionParams } from '../backend/utils/view-helpers/view-helpers'
 import { ActionJSON } from '..'
 import { DifferentActionParams } from '../../hooks/use-action/use-action.types'
 
