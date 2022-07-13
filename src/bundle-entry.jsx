@@ -8,13 +8,11 @@ const env = {
   NODE_ENV: process.env.NODE_ENV || 'development',
 }
 
-{/* JMW */}
-
 const store = {}
-const theme ={}
-const { locale } = {store}
+const theme = {}
+const { locale } = { store }
 
-{/* i18n.use(initReactI18next).init({
+i18n.use(initReactI18next).init({
   resources: {
     [locale.language]: {
       translation: locale.translations,
@@ -22,24 +20,22 @@ const { locale } = {store}
   },
   lng: locale.language,
   interpolation: { escapeValue: false },
-}) */}
+})
 
-const Application = (
-  <Provider store={store}>
+function Application() {
+  return <Provider store={store}>
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </ThemeProvider>
   </Provider>
-)
-
-export default Application
+}
 
 // eslint-disable-next-line no-undef
-//window.regeneratorRuntime = regeneratorRuntime
+window.regeneratorRuntime = regeneratorRuntime
 
-{/* export default {
+export default {
   withNotice,
   Application,
   ViewHelpers,
@@ -53,4 +49,4 @@ export default Application
   // TODO: remove this from the next release
   flatten: flat.flatten,
   unflatten: flat.unflatten,
-} */}
+}

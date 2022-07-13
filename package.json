@@ -7,7 +7,7 @@
     "lint": "eslint './src/**/*' './*' --ext .ts,.tsx,.js,.jsx",
     "build": "babel src --out-dir lib --copy-files --extensions '.ts,.js,.jsx,.tsx'",
     "types": "tsc",
-    "test": "node index.ts"
+    "test": "node test.ts"
   },
   "repository": {
     "type": "git",
