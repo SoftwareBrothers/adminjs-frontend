@@ -1,10 +1,10 @@
 import { Navigation, NavigationElementProps } from '@adminjs/design-system'
 import React from 'react'
-
-import { useHistory, useLocation } from 'react-router'
+//JMW
+import { useLocation, useNavigate } from 'react-router-dom'
+import ViewHelpers from '../../../backend/utils/view-helpers/view-helpers'
 import { useTranslation } from '../../../hooks/use-translation'
 import { ReduxState } from '../../../store/store'
-import ViewHelpers from '../../../view-helpers/view-helpers'
 
 type Props = {
   pages?: ReduxState['pages'];
@@ -17,7 +17,7 @@ const SidebarPages: React.FC<Props> = (props) => {
 
   const { translateLabel } = useTranslation()
   const location = useLocation()
-  const history = useHistory()
+  const navigate = useNavigate()
 
   if (!pages || !pages.length) {
     return (<></>)
@@ -36,7 +36,7 @@ const SidebarPages: React.FC<Props> = (props) => {
     onClick: (event, element): void => {
       event.preventDefault()
       if (element.href) {
-        history.push(element.href)
+        navigate(element.href)
       }
     },
   }))

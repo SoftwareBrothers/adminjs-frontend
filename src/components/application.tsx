@@ -1,10 +1,11 @@
 /* eslint-disable react/no-children-prop */
 import { Box, Overlay, Reset } from '@adminjs/design-system'
 import React, { useEffect, useState } from 'react'
-import { Route, Switch } from 'react-router-dom'
+
+//JMW
+import { Route, Switch, useLocation } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
 
-import { useLocation } from 'react-router'
 import ViewHelpers from '../backend/utils/view-helpers/view-helpers'
 import Notice from './app/notice'
 import Sidebar from './app/sidebar/sidebar'
@@ -45,9 +46,9 @@ const App: React.FC = () => {
   const bulkActionUrl = h.bulkActionUrl({ resourceId, actionName })
   const resourceUrl = h.resourceUrl({ resourceId })
   const pageUrl = h.pageUrl(pageName)
-
+  
   return (
-    <React.Fragment>
+    <>
       <Reset />
       <GlobalStyle />
       <Box height="100%" flex>
@@ -62,21 +63,25 @@ const App: React.FC = () => {
           <Box position="absolute" top={0} zIndex={2000}>
             <Notice />
           </Box>
-          <Switch>
-            <Route path={h.dashboardUrl()} exact component={Dashboard} />
-            <Route path={resourceUrl} component={Resource} />
-            <Route path={pageUrl} exact component={Page} />
-          </Switch>
-          <Switch>
-            <Route path={recordActionUrl} component={RecordAction} />
-            <Route path={resourceActionUrl} component={ResourceAction} />
-            <Route path={bulkActionUrl} component={BulkAction} />
-          </Switch>
+          <Dashboard />
         </Box>
       </Box>
-    </React.Fragment>
+    </>
 
   )
 }
 
 export default App
+
+
+{/* <Switch>
+    <Route path={h.dashboardUrl()} exact component={Dashboard} />
+    <Route path={resourceUrl} component={Resource} />
+    <Route path={pageUrl} exact component={Page} />
+  </Switch>
+  <Switch>
+    <Route path={recordActionUrl} component={RecordAction} />
+    <Route path={resourceActionUrl} component={ResourceAction} />
+    <Route path={bulkActionUrl} component={BulkAction} />
+  </Switch>
+</Box> */}

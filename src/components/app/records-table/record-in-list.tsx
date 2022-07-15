@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { useHistory } from 'react-router-dom'
+//JMW
+import { useNavigate } from 'react-router-dom'
 import {
   Placeholder, TableRow, TableCell, CheckBox, ButtonGroup,
 } from '@adminjs/design-system'
@@ -27,7 +28,7 @@ export const RecordInList: React.FC<RecordInListProps> = (props) => {
     isLoading, onSelect, isSelected,
   } = props
   const [record, setRecord] = useState<RecordJSON>(recordFromProps)
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const handleActionCallback = useCallback((actionResponse: ActionResponse) => {
     if (actionResponse.record && !actionResponse.redirectUrl) {
@@ -60,7 +61,7 @@ export const RecordInList: React.FC<RecordInListProps> = (props) => {
         action,
         params: { resourceId: resource.id, recordId: record.id },
         actionResponseHandler,
-        push: history.push,
+        push: navigate,
       })(event)
     }
   }
@@ -72,7 +73,7 @@ export const RecordInList: React.FC<RecordInListProps> = (props) => {
       action: sourceAction,
       params: actionParams,
       actionResponseHandler,
-      push: history.push,
+      push: navigate,
     })(event)
   )
 

@@ -1,9 +1,9 @@
-import { useHistory, useLocation } from 'react-router'
+//JMW
+import { useLocation, useNavigate } from 'react-router-dom'
 /* eslint-disable no-param-reassign */
 import {
-  NavigationProps,
   NavigationElementProps,
-  NavigationElementWithChildrenProps,
+  NavigationElementWithChildrenProps, NavigationProps
 } from '@adminjs/design-system'
 import { useMemo } from 'react'
 import { ResourceJSON } from '../interfaces'
@@ -20,7 +20,7 @@ export function useNavigationResources(
   const [openElements, setOpenElements] = useLocalStorage<Record<string, boolean>>(
     'sidebarElements', {},
   )
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
 
   const enrichResource = useMemo(() => (
@@ -35,10 +35,10 @@ export function useNavigationResources(
     onClick: (event): void => {
       if (resource.href) {
         event.preventDefault()
-        history.push(resource.href)
+        navigate(resource.href)
       }
     },
-  }), [location, history])
+  }), [location, navigate])
 
   // grouping resources into parents
   const map = resources

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { Box, Pagination, Text } from '@adminjs/design-system'
-import { useHistory, useLocation } from 'react-router'
+//JMW
+import { useNavigate, useLocation } from 'react-router-dom'
 
 import RecordsTable from '../app/records-table/records-table'
 import { ActionProps } from './action.props'
@@ -26,7 +27,7 @@ const List: React.FC<ActionProps> = ({ resource, setTag }) => {
     setSelectedRecords,
   } = useSelectedRecords(records)
   const location = useLocation()
-  const history = useHistory()
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (setTag) {
@@ -50,7 +51,7 @@ const List: React.FC<ActionProps> = ({ resource, setTag }) => {
   const handlePaginationChange = (pageNumber: number): void => {
     const search = new URLSearchParams(location.search)
     search.set('page', pageNumber.toString())
-    history.push({ search: search.toString() })
+    navigate({ search: search.toString() })
   }
 
   return (

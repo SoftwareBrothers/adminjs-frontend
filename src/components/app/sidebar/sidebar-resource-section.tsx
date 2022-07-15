@@ -28,6 +28,7 @@ export type SidebarResourceSectionProps = {
  * @name SidebarResourceSection
  */
 const SidebarResourceSectionOriginal: FC<SidebarResourceSectionProps> = ({ resources }) => {
+
   const elements = useNavigationResources(resources)
 
   const { translateLabel } = useTranslation()

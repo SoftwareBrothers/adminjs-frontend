@@ -1,3 +1,4 @@
 const Application = require('./lib/bundle-entry1.js')
- 
-console.log(Application)
+const Login = require('./lib/login-template1.js')
+ console.log(Application)
+console.log(Login)

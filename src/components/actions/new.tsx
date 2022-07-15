@@ -1,5 +1,6 @@
 import React, { FC, useEffect } from 'react'
-import { useHistory } from 'react-router'
+//JMW
+import { useNavigate } from 'react-router-dom'
 import { DrawerContent, Box, DrawerFooter, Button, Icon } from '@adminjs/design-system'
 
 import PropertyType from '../property-type'
@@ -22,7 +23,7 @@ const New: FC<ActionProps> = (props) => {
     setRecord,
   } = useRecord(initialRecord, resource.id)
   const { translateButton } = useTranslation()
-  const history = useHistory()
+  const navigate = useNavigate()
 
   useEffect(() => {
     if (initialRecord) {
@@ -34,7 +35,7 @@ const New: FC<ActionProps> = (props) => {
     event.preventDefault()
     handleSubmit().then((response) => {
       if (response.data.redirectUrl) {
-        history.push(appendForceRefresh(response.data.redirectUrl))
+        navigate(appendForceRefresh(response.data.redirectUrl))
       }
       // if record has id === has been created
       if (response.data.record.id && !Object.keys(response.data.record.errors).length) {

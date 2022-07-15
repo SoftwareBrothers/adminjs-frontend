@@ -4,7 +4,7 @@ import {
   BulkActionParams,
   ResourceActionParams,
   RecordActionParams, ActionParams,
-} from '../backend/utils/view-helpers/view-helpers'
+} from '../../../backend/utils/view-helpers/view-helpers'
 import { ActionResponse } from '../../../backend/actions/action.interface'
 
 export type DifferentActionParams = {

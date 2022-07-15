@@ -1,3 +1,4 @@
+//JMW
 import { Button, DrawerContent, DrawerFooter, Icon, MessageBox, Table, TableBody, TableCell, TableRow, Text } from '@adminjs/design-system'
 import React, { useState } from 'react'
 
@@ -21,7 +22,7 @@ import withRouter from '../../_tmp/with-router'
  * @private
  */
 const BulkDelete: React.FC<ActionProps & AddNoticeProps & RouteComponentProps> = (props) => {
-  const { resource, records, action, addNotice, history } = props
+  const { resource, records, action, addNotice, navigate } = props
 
   const [loading, setLoading] = useState(false)
   const { translateMessage, translateButton } = useTranslation()
@@ -52,7 +53,7 @@ const BulkDelete: React.FC<ActionProps & AddNoticeProps & RouteComponentProps> =
         const search = new URLSearchParams(window.location.search)
         // bulk function have recordIds in the URL so it has to be stripped before redirect
         search.delete('recordIds')
-        history.push(appendForceRefresh(response.data.redirectUrl, search.toString()))
+        navigate(appendForceRefresh(response.data.redirectUrl, search.toString()))
       }
     })).catch((error) => {
       setLoading(false)

@@ -1,5 +1,6 @@
 import React, { MouseEvent, SyntheticEvent, useState, useEffect, useRef } from 'react'
-import { useHistory, useLocation, useRouteMatch } from 'react-router-dom'
+//JMW
+import { useNavigate, useLocation, useRoute } from 'react-router-dom'
 import {
   Box,
   H3,
@@ -42,8 +43,8 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
 
   const location = useLocation()
   const [filter, setFilter] = useState(parseQuery(location))
-  const match = useRouteMatch<MatchProps>()
-  const history = useHistory()
+  const match = useRoute<MatchProps>()
+  const navigate = useNavigate()
   const { translateLabel, translateButton } = useTranslation()
   const initialLoad = useRef(true)
 
@@ -67,7 +68,7 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
     })
     toggleFilter()
     search.set('page', '1')
-    history.push(`${history.location.pathname}?${search.toString()}`)
+    navigate(`${Location.pathname}?${search.toString()}`)
     return false
   }
 
@@ -82,7 +83,7 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
     }
     const query = filteredSearch.toString() === '' ? `?${filteredSearch.toString()}` : ''
     toggleFilter()
-    history.push(history.location.pathname + query)
+    navigate(Location.pathname + query)
     setFilter({})
   }
 
