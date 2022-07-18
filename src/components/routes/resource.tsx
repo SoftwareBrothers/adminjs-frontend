@@ -1,7 +1,7 @@
 import { Box } from '@adminjs/design-system'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { useRouteMatch } from 'react-router-dom'
+import { useMatch, useParams} from 'react-router-dom'
 
 import { RouteComponentProps } from 'react-router'
 import { ActionJSON, ResourceJSON } from '../../interfaces'
@@ -33,9 +33,9 @@ const getAction = (resource: ResourceJSON): ActionJSON | undefined => {
   const resourceActionUrl = h.resourceActionUrl({ resourceId, actionName })
   const bulkActionUrl = h.bulkActionUrl({ resourceId, actionName })
 
-  const resourceActionMatch = useRouteMatch<ResourceActionParams>(resourceActionUrl)
-  const recordActionMatch = useRouteMatch<RecordActionParams>(recordActionUrl)
-  const bulkActionMatch = useRouteMatch<Pick<BulkActionParams, 'actionName' | 'resourceId'>>(bulkActionUrl)
+  const resourceActionMatch = useMatch<ResourceActionParams>(resourceActionUrl)
+  const recordActionMatch = useMatch<RecordActionParams>(recordActionUrl)
+  const bulkActionMatch = useMatch<Pick<BulkActionParams, 'actionName' | 'resourceId'>>(bulkActionUrl)
 
   const action = resourceActionMatch?.params.actionName
     || recordActionMatch?.params.actionName
@@ -45,8 +45,9 @@ const getAction = (resource: ResourceJSON): ActionJSON | undefined => {
 }
 
 const ResourceAction: React.FC<Props> = (props) => {
-  const { resources, match } = props
-  const { resourceId } = match.params
+  const params = useParams()
+  const { resources } = props
+  const { resourceId } = params
 
   const [filterVisible, setFilterVisible] = useState(false)
   const [tag, setTag] = useState('')

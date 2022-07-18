@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 
 import { AxiosResponse } from 'axios'
-import { useLocation, useHistory } from 'react-router'
+//JMW
+import { useLocation, useNavigate } from 'react-router-dom'
 import { RecordJSON } from '../../interfaces'
 import useNotice from '../use-notice'
 import ApiClient from '../../utils/api-client'
@@ -33,7 +34,7 @@ function useRecords(resourceId: string): UseRecordsResult {
   const [direction, setDirection] = useState<'asc'| 'desc'>('asc')
   const [sortBy, setSortBy] = useState<string | undefined>()
   const location = useLocation()
-  const history = useHistory()
+  const navigate = useNavigate()
   const addNotice = useNotice()
   const { translateMessage } = useTranslation()
   const onNotice = useNotice()
@@ -52,7 +53,7 @@ function useRecords(resourceId: string): UseRecordsResult {
         onNotice(listActionResponse.notice)
       }
       if (listActionResponse.redirectUrl) {
-        history.push(listActionResponse.redirectUrl)
+        navigate(listActionResponse.redirectUrl)
         return
       }
 
@@ -74,7 +75,7 @@ function useRecords(resourceId: string): UseRecordsResult {
 
   useEffect(() => {
     if (hasForceRefresh(location.search)) {
-      history.replace({
+      navigate({
         pathname: location.pathname,
         search: removeForceRefresh(location.search).toString(),
       })

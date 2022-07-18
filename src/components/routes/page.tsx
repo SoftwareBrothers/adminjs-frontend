@@ -63,7 +63,6 @@ class Page extends React.Component<Props, State> {
         </ErrorMessageBox>
       )
     }
-
     return (
       <ErrorBoundary>
         <Component />

@@ -1,6 +1,6 @@
 import React, { MouseEvent, SyntheticEvent, useState, useEffect, useRef } from 'react'
 //JMW
-import { useNavigate, useLocation, useRoute } from 'react-router-dom'
+import { useNavigate, useLocation, useMatch } from 'react-router-dom'
 import {
   Box,
   H3,
@@ -38,15 +38,18 @@ const parseQuery = (location): any => {
 }
 
 export const FilterDrawer: React.FC<FilterProps> = (props) => {
+  
   const { resource, isVisible, toggleFilter } = props
   const properties = resource.filterProperties
 
   const location = useLocation()
+  
   const [filter, setFilter] = useState(parseQuery(location))
-  const match = useRoute<MatchProps>()
+  //const match = useMatch<MatchProps>()
   const navigate = useNavigate()
   const { translateLabel, translateButton } = useTranslation()
   const initialLoad = useRef(true)
+  console.log(filter)
 
   useEffect(() => {
     if (initialLoad.current) {
@@ -54,8 +57,9 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
     } else {
       setFilter({})
     }
-  }, [match.params.resourceId])
-
+  }, []) 
+  // }, [match.params.resourceId])  
+  
   const handleSubmit = (event: SyntheticEvent): false => {
     event.preventDefault()
     const search = new URLSearchParams(window.location.search)
@@ -79,7 +83,7 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
     for (const key of search.keys()) {
       if (!key.match('filters.')) {
         filteredSearch.set(key, search.get(key) as string)
-      }
+      } 
     }
     const query = filteredSearch.toString() === '' ? `?${filteredSearch.toString()}` : ''
     toggleFilter()

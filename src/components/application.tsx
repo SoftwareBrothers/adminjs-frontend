@@ -3,7 +3,7 @@ import { Box, Overlay, Reset } from '@adminjs/design-system'
 import React, { useEffect, useState } from 'react'
 
 //JMW
-import { Route, Switch, useLocation } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
 
 import ViewHelpers from '../backend/utils/view-helpers/view-helpers'
@@ -46,7 +46,7 @@ const App: React.FC = () => {
   const bulkActionUrl = h.bulkActionUrl({ resourceId, actionName })
   const resourceUrl = h.resourceUrl({ resourceId })
   const pageUrl = h.pageUrl(pageName)
-  
+    
   return (
     <>
       <Reset />
@@ -63,7 +63,14 @@ const App: React.FC = () => {
           <Box position="absolute" top={0} zIndex={2000}>
             <Notice />
           </Box>
-          <Dashboard />
+          <Routes>
+            <Route path={h.dashboardUrl()} element={<Dashboard/>} />
+            <Route path={resourceUrl} element={<Resource/>} />
+            <Route path={pageUrl} exact element={<Page/>} />
+            <Route path={recordActionUrl} element={<RecordAction/>} />
+            <Route path={resourceActionUrl} element={<ResourceAction/>} />
+            <Route path={bulkActionUrl} element={<BulkAction/>} />
+          </Routes>
         </Box>
       </Box>
     </>
@@ -73,15 +80,11 @@ const App: React.FC = () => {
 
 export default App
 
+{/* <Routes>
+  <Route path={recordActionUrl} element={<RecordAction/>} />
+  <Route path={resourceActionUrl} element={<ResourceAction/>} />
+  <Route path={bulkActionUrl} element={<BulkAction/>} />
+</Routes> */}
 
-{/* <Switch>
-    <Route path={h.dashboardUrl()} exact component={Dashboard} />
-    <Route path={resourceUrl} component={Resource} />
-    <Route path={pageUrl} exact component={Page} />
-  </Switch>
-  <Switch>
-    <Route path={recordActionUrl} component={RecordAction} />
-    <Route path={resourceActionUrl} component={ResourceAction} />
-    <Route path={bulkActionUrl} component={BulkAction} />
-  </Switch>
-</Box> */}
+
+

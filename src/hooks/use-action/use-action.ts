@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router'
+import { useNavigate } from 'react-router-dom'
 
 import { ActionResponse } from '../../../backend/actions/action.interface'
 
@@ -25,7 +25,7 @@ export function useAction<K extends ActionResponse>(
   params: DifferentActionParams,
   onActionCall?: ActionCallCallback,
 ): UseActionResult<K> {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const actionResponseHandler = useActionResponseHandler(onActionCall)
 
@@ -41,7 +41,7 @@ export function useAction<K extends ActionResponse>(
     action,
     params,
     actionResponseHandler,
-    push: history.push,
+    push: navigate,
   })
 
   return {
