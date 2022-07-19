@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 
-import { useRouteMatch } from 'react-router'
+import { useMatch, useParams } from 'react-router-dom'
 import { Loader } from '@adminjs/design-system'
 
 import BaseActionComponent from '../app/base-action-component'
@@ -18,26 +18,28 @@ import mergeRecordResponse from '../../hooks/use-record/merge-record-response'
 const api = new ApiClient()
 
 const RecordAction: React.FC = () => {
+  const params = useParams()
   const [record, setRecord] = useState<RecordJSON>()
   const [loading, setLoading] = useState(true)
-  const match = useRouteMatch<RecordActionParams>()
+  //const match = useMatch<RecordActionParams>()
+
   const addNotice = useNotice()
   const { translateMessage } = useTranslation()
-
-  const { actionName, recordId, resourceId } = match.params
+  const { actionName, recordId, resourceId } = params
   const resource = useResource(resourceId)
 
   const action = record && record.recordActions.find(r => r.name === actionName)
 
   const fetchRecord = (): void => {
     setLoading(true)
-    api.recordAction(match.params).then((response) => {
+    api.recordAction(params).then((response) => {
       setLoading(false)
       if (response.data.notice && response.data.notice.type === 'error') {
         addNotice(response.data.notice)
       }
       setRecord(response.data.record)
     }).catch((error) => {
+      console.log(error)
       addNotice({
         message: translateMessage('errorFetchingRecord', resourceId),
         type: 'error',

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import { useParams } from 'react-router-dom'
 
 import { RouteComponentProps } from 'react-router'
 import BaseActionComponent from '../app/base-action-component'
@@ -19,8 +20,9 @@ type PropsFromState = {
 type Props = PropsFromState & RouteComponentProps<ResourceActionParams>
 
 const ResourceAction: React.FC<Props> = (props) => {
-  const { resources, match } = props
-  const { resourceId, actionName } = match.params
+  const params = useParams()
+  const { resources } = props
+  const { resourceId, actionName } = params
   const [filterVisible, setFilterVisible] = useState(false)
   const [tag, setTag] = useState('')
 

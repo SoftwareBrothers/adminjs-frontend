@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Loader } from '@adminjs/design-system'
-import { useRouteMatch, useLocation } from 'react-router'
+import { useMatch, useLocation } from 'react-router-dom'
 
 import { BulkActionParams } from '../backend/utils/view-helpers/view-helpers'
 
@@ -27,7 +27,7 @@ type MatchParams = Pick<BulkActionParams, 'actionName' | 'resourceId'>
 const api = new ApiClient()
 
 const BulkAction: React.FC = () => {
-  const match = useRouteMatch<MatchParams>()
+  const match = useMatch<MatchParams>()
   const [records, setRecords] = useState<Array<RecordJSON>>([])
   const [loading, setLoading] = useState(false)
   const { translateMessage } = useTranslation()

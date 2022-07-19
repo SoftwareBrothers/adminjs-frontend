@@ -9,6 +9,7 @@ import {
 /* eslint-disable no-alert */
 import { RecordJSON } from '../interfaces'
 import { RecordActionResponse, ActionResponse, BulkActionResponse } from '../../backend/actions/action.interface'
+import config from './../config/FrontConfig.json'
 
 let globalAny: any = {}
 
@@ -33,7 +34,7 @@ try {
 
 const checkResponse = (response: AxiosResponse): void => {
   if (globalAny.isOnServer) { return }
-  const loginUrl = [globalAny.location.origin, globalAny.REDUX_STATE.paths.loginPath].join('')
+  const loginUrl = [config.adminApiUrl, config.paths.loginPath].join('')
   // if response has redirect to loginUrl
   if (response.request.responseURL
       && response.request.responseURL.match(loginUrl)
@@ -128,8 +129,9 @@ class ApiClient {
   }
 
   static getBaseUrl(): string {
+    
     if (globalAny.isOnServer) { return '' }
-    return [globalAny.location.origin, globalAny.REDUX_STATE?.paths.rootPath].join('')
+    return [config.adminApiUrl, config.paths.rootPath].join('')
   }
 
   /**

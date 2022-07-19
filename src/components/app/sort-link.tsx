@@ -27,7 +27,8 @@ class SortLink extends React.PureComponent<SortLinkProps & RouteComponentProps> 
   }
 
   render(): ReactNode {
-    const { property, location, direction } = this.props
+    const { property, direction } = this.props
+    const location = Location
     const query = new URLSearchParams(location.search)
     const oppositeDirection = (this.isActive() && direction === 'asc') ? 'desc' : 'asc'
     const sortedByIcon = `Caret${direction === 'asc' ? 'Up' : 'Down'}`

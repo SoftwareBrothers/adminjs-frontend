@@ -49,7 +49,6 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
   const navigate = useNavigate()
   const { translateLabel, translateButton } = useTranslation()
   const initialLoad = useRef(true)
-  console.log(filter)
 
   useEffect(() => {
     if (initialLoad.current) {

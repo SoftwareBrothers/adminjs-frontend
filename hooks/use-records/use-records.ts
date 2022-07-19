@@ -64,7 +64,8 @@ function useRecords(resourceId: string): UseRecordsResult {
       setDirection(listActionResponse.meta.direction)
       setSortBy(listActionResponse.meta.sortBy)
       setLoading(false)
-    }).catch(() => {
+    }).catch((e) => {
+      console.error(e)
       addNotice({
         message: translateMessage('errorFetchingRecords', resourceId),
         type: 'error',
