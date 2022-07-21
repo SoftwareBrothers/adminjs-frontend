@@ -1,5 +1,5 @@
-const { Application } = require('./lib/bundle-entry1.js')
-const { Login } = require('./lib/login-template1.js')
+const { Application } = require('./lib/adminjs.js')
+const { Login } = require('./lib/login.js')
 
 module.exports = {
   Application,

@@ -18,7 +18,7 @@ import createStore, {
   ReduxState,
 } from './store/store'
 
-import config from './config/redux.json'
+//import config from './config/redux.json'
 //import theme_ from './config/theme.json'
 
 type LoginTemplateAttributes = {
@@ -40,24 +40,17 @@ const store: Store<ReduxState> = createStore()
 //const assets = await getAssets(admin)
 //const faviconTag = getFaviconFromBranding(branding)
 
-const branding = config.branding
+//const branding = config.branding
 
-store.dispatch(initializeBranding(branding))
+//store.dispatch(initializeBranding(branding))
 //store.dispatch(initializeAssets(assets))
-store.dispatch(initializeLocale(config.locale))
+//store.dispatch(initializeLocale(config.locale))
 
-const theme = combineStyles((branding && branding.theme) || {})
+//const theme = combineStyles((branding && branding.theme) || {})
+const theme = combineStyles({})
+
 const { locale } = store.getState()
-i18n
-  .init({
-    resources: {
-      [locale.language]: {
-        translation: locale.translations,
-      },
-    },
-    lng: locale.language,
-    interpolation: { escapeValue: false },
-  })
+
 
 const sheet = new ServerStyleSheet()
 // TODO: fix children props
@@ -65,8 +58,34 @@ const StoreProvider = Provider as any
 
 
 
-export const Login = () => {
-  return (
+export const Login = (props) => {
+  const { url }  = props 
+  const [config, setConfig] = useState({})
+  useEffect( ()=> {
+    fetch(`${url}/admin/api/metadata`)
+      .then( response => {
+        if (response.ok) {
+          return response.json()
+        }}
+      ).then(data => {
+        setConfig(data)
+        store = createStore(data)
+        i18n.use(initReactI18next).init({
+          resources: {
+            [data.locale.language]: {
+              translation: data.locale.translations,
+            },
+          },
+          lng: data.locale.language,
+          interpolation: { escapeValue: false },
+        }) 
+      }) 
+  
+  },[])
+  
+  
+  
+  return  (Object.keys(config).length === 0 ? null : (
     <StyleSheetManager sheet={sheet.instance}>
       <StoreProvider store={store}>
         <I18nextProvider i18n={i18n}>
@@ -76,7 +95,5 @@ export const Login = () => {
         </I18nextProvider>
       </StoreProvider>
     </StyleSheetManager>
-  )
+  ))
 }
-
-
