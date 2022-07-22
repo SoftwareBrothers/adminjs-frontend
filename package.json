@@ -40,7 +40,8 @@
     "eslint-plugin-react-hooks": "^4.3.0"
   },
   "dependencies": {
-    "@adminjs/design-system": "^3.0.0-beta.4",
+    "@adminjs/design-system": "^3.0.0",
+    "@adminjs/common": "*",
     "axios": "^0.27.2",
     "flat": "^5.0.2",
     "i18next": "^21.8.13",
