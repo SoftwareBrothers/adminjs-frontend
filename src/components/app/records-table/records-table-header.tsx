@@ -2,7 +2,6 @@ import React from 'react'
 import { CheckBox, TableHead, TableRow, TableCell } from '@adminjs/design-system'
 
 import PropertyHeader from './property-header'
-//import { BasePropertyJSON } from '../../../interfaces'
 import { BasePropertyJSON } from '@adminjs/common/interfaces'
 import { display } from './utils/display'
 

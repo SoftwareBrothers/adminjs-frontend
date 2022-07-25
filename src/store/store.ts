@@ -8,13 +8,9 @@ import {
 } from './actions'
 
 import { Assets, BrandingOptions, VersionProps } from '../../adminjs-options.interface'
-import { CurrentAdmin } from '../../current-admin.interface'
-import { Locale } from '../../locale/config'
-import { NoticeMessage } from '../hoc/with-notice'
-//import { PageJSON, ResourceJSON } from '../interfaces'
-import { PageJSON, ResourceJSON } from '@adminjs/common/interfaces'
 
-//import { DEFAULT_PATHS } from './../constants'
+import { CurrentAdmin, Locale, NoticeMessage, PageJSON, ResourceJSON } from '@adminjs/common/interfaces'
+
 import { DEFAULT_PATHS } from '@adminjs/common/constants'
 
 export type DashboardInState = {

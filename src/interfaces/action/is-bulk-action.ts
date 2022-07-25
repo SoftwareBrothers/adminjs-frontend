@@ -1,6 +1,5 @@
 import { BulkActionParams } from '@adminjs/common/utils'
-
-import { ActionJSON } from '..'
+import { ActionJSON } from '@adminjs/common/interfaces'
 import { DifferentActionParams } from '../../hooks/use-action/use-action.types'
 
 export const isBulkAction = (

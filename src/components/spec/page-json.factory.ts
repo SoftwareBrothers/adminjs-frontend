@@ -1,5 +1,4 @@
 import factory from 'factory-girl'
-//import { PageJSON } from '../../interfaces'
 import { PageJSON } from '@adminjs/common/interfaces'
 
 

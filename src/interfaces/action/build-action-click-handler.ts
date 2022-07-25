@@ -4,7 +4,7 @@
 import { DifferentActionParams, useActionResponseHandler } from '../../hooks'
 import { actionHasComponent } from './action-has-component'
 import { actionHref } from './action-href'
-import { ActionJSON } from './action-json.interface'
+import { ActionJSON } from '@adminjs/common/interfaces'
 import { buildActionCallApiTrigger } from './build-action-api-call-trigger'
 
 export type BuildActionClickOptions = {

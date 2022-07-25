@@ -1,4 +1,3 @@
-//import { ResourceJSON } from '../../interfaces'
 import { ResourceJSON } from '@adminjs/common/interfaces'
 
 

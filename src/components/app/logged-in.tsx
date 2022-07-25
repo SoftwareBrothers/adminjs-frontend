@@ -1,7 +1,7 @@
 import React from 'react'
 import { CurrentUserNav, Box, CurrentUserNavProps } from '@adminjs/design-system'
 
-import { CurrentAdmin } from '../../../current-admin.interface'
+import { CurrentAdmin } from '@adminjs/common/interfaces'
 import { useTranslation } from '../../hooks'
 import allowOverride from '../../hoc/allow-override'
 

@@ -56,7 +56,6 @@ export const useRecord = (
     value?: any,
     incomingRecord?: RecordJSON,
   ): void => {
-    console.log('incomingRecord', incomingRecord)
     if (isEntireRecordGiven(propertyOrRecord, value)) {
       setFilteredRecord(propertyOrRecord as RecordJSON)
     } else if (isPropertyPermitted(propertyOrRecord as string, options)) {

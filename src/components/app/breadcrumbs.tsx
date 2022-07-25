@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { ViewHelpers } from '@adminjs/common/utils'
 import { useTranslation } from '../../hooks/use-translation'
-//import { RecordJSON, ResourceJSON } from '../../interfaces'
 import { RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
 
 

@@ -1,6 +1,5 @@
 import { RecordActionParams, ViewHelpers } from '@adminjs/common/utils'
 import { DifferentActionParams } from '../../hooks'
-//import { ActionJSON } from './action-json.interface'
 import { ActionJSON } from '@adminjs/common/interfaces'
 
 const h = new ViewHelpers()

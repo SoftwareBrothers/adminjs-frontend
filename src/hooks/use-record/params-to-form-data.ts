@@ -1,7 +1,3 @@
-export const FORM_VALUE_NULL = '__FORM_VALUE_NULL__'
-export const FORM_VALUE_EMPTY_OBJECT = '__FORM_VALUE_EMPTY_OBJECT__'
-export const FORM_VALUE_EMPTY_ARRAY = '__FORM_VALUE_EMPTY_ARRAY__'
-
 const isObjectOrArray = (value: any): boolean => (
   typeof value === 'object'
   && (value as object).constructor !== File

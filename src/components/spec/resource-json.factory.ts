@@ -1,6 +1,5 @@
 import factory from 'factory-girl'
 import './property-json.factory'
-//import { PropertyJSON, ResourceJSON } from '../../interfaces'
 import { PropertyJSON, ResourceJSON } from '@adminjs/common/interfaces'
 
 

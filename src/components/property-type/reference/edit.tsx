@@ -3,7 +3,6 @@ import { FormGroup, FormMessage, SelectAsync } from '@adminjs/design-system'
 
 import ApiClient from '../../../utils/api-client'
 import { EditPropertyProps, SelectRecord } from '../base-property-props'
-//import { RecordJSON } from '../../../interfaces'
 import { RecordJSON } from '@adminjs/common/interfaces'
 import { PropertyLabel } from '../utils/property-label'
 

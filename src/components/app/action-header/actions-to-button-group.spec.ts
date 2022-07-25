@@ -1,7 +1,6 @@
 import { ButtonGroupProps } from '@adminjs/design-system'
 import { expect } from 'chai'
 import factory from 'factory-girl'
-//import { ActionJSON } from '../../../interfaces'
 import { ActionJSON } from '@adminjs/common/interfaces'
 import { actionsToButtonGroup } from './actions-to-button-group'
 

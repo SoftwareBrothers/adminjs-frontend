@@ -1,5 +1,4 @@
 import { Dispatch, SetStateAction } from 'react'
-//import { ActionJSON, RecordJSON, ResourceJSON } from '../../interfaces'
 import { ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
 
 

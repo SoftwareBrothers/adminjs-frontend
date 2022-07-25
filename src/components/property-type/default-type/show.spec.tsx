@@ -8,7 +8,6 @@ import TestContextProvider from '../../spec/test-context-provider'
 import '../../spec/resource-json.factory'
 import '../../spec/record-json.factory'
 
-//import { RecordJSON, PropertyJSON, ResourceJSON } from '../../../interfaces'
 import { RecordJSON, PropertyJSON, ResourceJSON } from '@adminjs/common/interfaces'
 
 
