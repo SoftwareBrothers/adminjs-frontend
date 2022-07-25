@@ -1,6 +1,5 @@
 import React from 'react'
 import { TableCaption, Title, ButtonGroup, Box } from '@adminjs/design-system'
-// JMW
 import { useNavigate } from 'react-router-dom'
 import { buildActionClickHandler } from '../../../interfaces'
 import { ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'

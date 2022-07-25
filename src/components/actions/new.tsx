@@ -1,12 +1,8 @@
 import React, { FC, useEffect } from 'react'
-//JMW
 import { useNavigate } from 'react-router-dom'
 import { DrawerContent, Box, DrawerFooter, Button, Icon } from '@adminjs/design-system'
 
-//import PropertyType from '../property-type'
-//import { RecordJSON } from '../../interfaces'
 import { RecordJSON, PropertyType } from '@adminjs/common/interfaces'
-
 import { ActionProps } from './action.props'
 import ActionHeader from '../app/action-header/action-header'
 import useRecord from '../../hooks/use-record/use-record'

@@ -4,7 +4,7 @@ import { ViewHelpers } from '@adminjs/common/utils'
 import { initializeStore } from './store'
 import AdminJS from '../adminjs'
 import { CurrentAdmin } from '../current-admin.interface'
-import { getFaviconFromBranding } from '../backend/utils/options-parser/options-parser'
+//import { getFaviconFromBranding } from '../backend/utils/options-parser/options-parser'
 
 /**
  * Renders (SSR) html for given location

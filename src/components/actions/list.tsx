@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { Box, Pagination, Text } from '@adminjs/design-system'
-//JMW
 import { useNavigate, useLocation } from 'react-router-dom'
 
 import RecordsTable from '../app/records-table/records-table'

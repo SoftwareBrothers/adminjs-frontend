@@ -1,4 +1,3 @@
-//JMW
 import { Button, DrawerContent, DrawerFooter, Icon, MessageBox, Table, TableBody, TableCell, TableRow, Text } from '@adminjs/design-system'
 import React, { useState } from 'react'
 
