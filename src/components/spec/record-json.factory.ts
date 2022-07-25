@@ -1,6 +1,5 @@
 import factory from 'factory-girl'
 import './action-json.factory'
-//import { ActionJSON, RecordJSON } from '../../interfaces'
 import {  ActionJSON, RecordJSON } from '@adminjs/common/interfaces'
 
 

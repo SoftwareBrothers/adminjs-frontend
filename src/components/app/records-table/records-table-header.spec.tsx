@@ -5,7 +5,6 @@ import { expect } from 'chai'
 
 import TestContextProvider from '../../spec/test-context-provider'
 import RecordsTableHeader from './records-table-header'
-//import { PropertyJSON } from '../../../interfaces'
 import { PropertyJSON } from '@adminjs/common/interfaces'
 
 require('../../spec/property-json.factory')

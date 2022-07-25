@@ -2,7 +2,8 @@ import React, { FC, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { DrawerContent, Box, DrawerFooter, Button, Icon } from '@adminjs/design-system'
 
-import { RecordJSON, PropertyType } from '@adminjs/common/interfaces'
+import { RecordJSON } from '@adminjs/common/interfaces'
+import PropertyType from '../property-type'
 import { ActionProps } from './action.props'
 import ActionHeader from '../app/action-header/action-header'
 import useRecord from '../../hooks/use-record/use-record'
@@ -21,7 +22,6 @@ const New: FC<ActionProps> = (props) => {
     setRecord,
   } = useRecord(initialRecord, resource.id)
   
-  console.log('New',action)
   const { translateButton } = useTranslation()
   const navigate = useNavigate()
 

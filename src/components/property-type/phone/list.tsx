@@ -1,6 +1,4 @@
 import React, { FC } from 'react'
-
-//import { RecordJSON, ResourceJSON, PropertyJSON } from '../../../interfaces'
 import { RecordJSON, ResourceJSON, PropertyJSON  } from '@adminjs/common/interfaces'
 
 import DefaultPropertyValue from '../default-type/default-property-value'

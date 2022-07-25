@@ -4,8 +4,7 @@ import { useParams } from 'react-router-dom'
 
 import { RouteComponentProps } from 'react-router-dom'
 import BaseActionComponent from '../app/base-action-component'
-import { ResourceJSON } from '../../interfaces'
-//import { ResourceJSON } from '@adminjs/common/interfaces'
+import { ResourceJSON } from '@adminjs/common/interfaces'
 
 import { ReduxState } from '../../store/store'
 import { NoResourceError, NoActionError } from '../app/error-message'

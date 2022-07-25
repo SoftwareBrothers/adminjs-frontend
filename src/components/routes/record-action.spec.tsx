@@ -11,12 +11,11 @@ import { AxiosResponse } from 'axios'
 import createStore, { ReduxState } from '../../store/store'
 import RecordAction from './record-action'
 import ApiClient from '../../utils/api-client'
-//import { RecordJSON } from '../../interfaces'
 import { RecordJSON } from '@adminjs/common/interfaces'
 
 import TestContextProvider from '../spec/test-context-provider'
 import factory from '../spec/factory'
-import * as TranslateFunctionsFactory from '../../../utils/translate-functions.factory'
+import { TranslateFunctions } from '@adminjs/common/utils'
 
 const defaultStore = {
   paths: {},

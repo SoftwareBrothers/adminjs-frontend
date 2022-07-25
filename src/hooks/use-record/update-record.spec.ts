@@ -2,7 +2,6 @@ import { expect } from 'chai'
 import { unflatten } from 'flat'
 
 import updateRecord from './update-record'
-//import { RecordJSON } from '../../interfaces'
 import { RecordJSON } from '@adminjs/common/interfaces'
 
 describe('updateRecord', function () {

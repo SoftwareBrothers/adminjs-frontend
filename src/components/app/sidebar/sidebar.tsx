@@ -4,7 +4,6 @@ import { useSelector } from 'react-redux'
 import { Box, cssClass, themeGet } from '@adminjs/design-system'
 
 import { BrandingOptions } from 'src/adminjs-options.interface'
-//import { ResourceJSON, PageJSON } from 'src/frontend/interfaces'
 import { ResourceJSON, PageJSON } from '@adminjs/common/interfaces'
 import SidebarBranding from './sidebar-branding'
 import SidebarPages from './sidebar-pages'

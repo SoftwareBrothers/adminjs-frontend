@@ -13,7 +13,7 @@ import {
 } from './actions'
 
 import AdminJS from '../../adminjs'
-import { CurrentAdmin } from '../../current-admin.interface'
+import { CurrentAdmin } from '@adminjs/common/interfaces'
 import pagesToStore from './pages-to-store'
 //import { getBranding, getAssets } from '../../backend/utils/options-parser/options-parser'
 

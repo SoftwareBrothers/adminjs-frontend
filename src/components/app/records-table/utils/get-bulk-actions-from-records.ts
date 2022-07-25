@@ -1,4 +1,3 @@
-//import { ActionJSON, RecordJSON } from '../../../../interfaces'
 import { ActionJSON, RecordJSON } from '@adminjs/common/interfaces'
 
 const getBulkActionsFromRecords = (records: Array<RecordJSON>): Array<ActionJSON> => {

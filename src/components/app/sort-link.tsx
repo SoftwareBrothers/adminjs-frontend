@@ -1,13 +1,7 @@
 import React, { ReactNode } from 'react'
-import { NavLink } from 'react-router-dom'
-
+import { NavLink, RouteComponentProps } from 'react-router-dom'
 import { cssClass, Icon } from '@adminjs/design-system'
-import { RouteComponentProps } from 'react-router-dom'
-
-//import { BasePropertyJSON } from '../../interfaces'
 import { BasePropertyJSON } from '@adminjs/common/interfaces'
-
-
 import withRouter from '../../hoc/with-router'
 
 

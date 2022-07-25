@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Loader } from '@adminjs/design-system'
 import { useMatch, useLocation } from 'react-router-dom'
-
+import { ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
 import { BulkActionParams } from '@adminjs/common/utils'
-
 import ApiClient from '../../utils/api-client'
 import getBulkActionsFromRecords from '../app/records-table/utils/get-bulk-actions-from-records'
-//import { ActionJSON, RecordJSON, ResourceJSON } from '../../interfaces'
-import { ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
+
 
 import Wrapper from './utils/wrapper'
 import {

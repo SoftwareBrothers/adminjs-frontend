@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux'
-import { ResourceJSON } from '../../interfaces/resource-json.interface'
-//import { ResourceJSON } from '@adminjs/common/interfaces'
+import { ResourceJSON } from '@adminjs/common/interfaces'
 
 
 import { ReduxState } from '../../store/store'

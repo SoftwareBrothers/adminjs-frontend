@@ -2,8 +2,6 @@ import { Box } from '@adminjs/design-system'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { useMatch, useParams, RouteComponentProps} from 'react-router-dom'
-//import { RouteComponentProps } from 'react-router'
-//import { ActionJSON, ResourceJSON } from '../../interfaces'
 import { ActionJSON, ResourceJSON } from '@adminjs/common/interfaces'
 import { ReduxState } from '../../store/store'
 import { ActionHeader } from '../app'
@@ -73,7 +71,7 @@ const ResourceAction: React.FC<Props> = (props) => {
   const toggleFilter = listAction.showFilter
     ? ((): void => setFilterVisible(!filterVisible))
     : undefined
-  console.log('listAction', listAction)
+
   return (
     <Box variant="grey" width={listAction.containerWidth} mx="auto">
       <ActionHeader
@@ -84,6 +82,14 @@ const ResourceAction: React.FC<Props> = (props) => {
       />
       <BaseAction action={listAction} resource={resource} setTag={setTag} />
       
+      {listAction.showFilter ? (
+        <FilterDrawer
+          key={filterVisible.toString()}
+          resource={resource}
+          isVisible={filterVisible}
+          toggleFilter={(): void => { setFilterVisible(!filterVisible) }}
+        />
+      ) : ''} 
     </Box>
   )
 }
@@ -95,11 +101,3 @@ const mapStateToProps = (state: ReduxState): PropsFromState => ({
 export default connect(mapStateToProps)(ResourceAction)
 
 
-{/* {listAction.showFilter ? (
-  <FilterDrawer
-    key={filterVisible.toString()}
-    resource={resource}
-    isVisible={filterVisible}
-    toggleFilter={(): void => { setFilterVisible(!filterVisible) }}
-  />
-) : ''} */}

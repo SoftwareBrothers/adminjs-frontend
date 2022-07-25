@@ -3,7 +3,6 @@ import { expect } from 'chai'
 
 import recordToFormData, { FORM_VALUE_EMPTY_OBJECT, FORM_VALUE_NULL, FORM_VALUE_EMPTY_ARRAY } from './params-to-form-data'
 import '../../components/spec/record-json.factory'
-//import { RecordJSON } from '../../interfaces'
 import { RecordJSON } from '@adminjs/common/interfaces'
 
 describe('recordToFormData', function () {

@@ -1,4 +1,3 @@
-//import { RecordJSON } from '../../interfaces'
 import { RecordJSON } from '@adminjs/common/interfaces'
 
 

@@ -1,7 +1,5 @@
-//import { RecordJSON } from '../../interfaces'
 import { RecordJSON } from '@adminjs/common/interfaces'
-//import { flat } from '../../utils/flat'
-import { flat } from '@adminjs/common'
+import { flat } from '@adminjs/common/utils'
 
 /**
  * HOF returning a function which takes a record and returns an updated record.
@@ -34,7 +32,6 @@ export const updateRecord = (
   value: any,
   selectedRecord?: RecordJSON,
 ) => (previousRecord: RecordJSON): RecordJSON => {
-  console.log('updateRecord - selectedRecord', selectedRecord)
   let populatedModified = false
   const populatedCopy = { ...previousRecord.populated }
   const paramsCopy = flat.set(previousRecord.params, property, value)

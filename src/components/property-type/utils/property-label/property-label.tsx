@@ -1,6 +1,5 @@
 import { Label, LabelProps } from '@adminjs/design-system'
 import React from 'react'
-//import { PropertyJSON } from '../../../../interfaces'
 import { PropertyJSON } from '@adminjs/common/interfaces'
 
 import { PropertyDescription } from '../property-description'

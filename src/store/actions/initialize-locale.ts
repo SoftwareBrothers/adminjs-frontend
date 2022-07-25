@@ -1,4 +1,4 @@
-import { Locale } from '../../../locale/config'
+import { Locale } from '@adminjs/common/interfaces'
 
 export const LOCALE_INITIALIZE = 'LOCALE_INITIALIZE'
 

@@ -1,6 +1,5 @@
 import { Box, Icon, Tooltip } from '@adminjs/design-system'
 import React from 'react'
-//import { PropertyJSON } from '../../../../interfaces'
 import { PropertyJSON } from '@adminjs/common/interfaces'
 
 

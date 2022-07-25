@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { ViewHelpers } from '@adminjs/common/utils'
-//import { PropertyJSON, RecordJSON } from '../../../interfaces'
 import { PropertyJSON, RecordJSON } from '@adminjs/common/interfaces'
 
 

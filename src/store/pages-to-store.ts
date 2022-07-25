@@ -1,6 +1,4 @@
 import { AdminJSOptions } from '../../adminjs-options.interface'
-
-//import { PageJSON } from '../interfaces'
 import { PageJSON } from '@adminjs/common/interfaces'
 
 

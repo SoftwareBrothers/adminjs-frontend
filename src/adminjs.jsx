@@ -34,7 +34,7 @@ export const Application = (props) => {
       }) 
 
   },[])
-  console.log('render Application')
+
   return (
     Object.keys(config).length === 0 ? null : (
       <Provider store={store}>

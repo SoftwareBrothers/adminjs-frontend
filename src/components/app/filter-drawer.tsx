@@ -10,9 +10,8 @@ import {
   DrawerFooter,
 } from '@adminjs/design-system'
 
-//import PropertyType from '../property-type'
-//import { RecordJSON, ResourceJSON } from '../../interfaces'
-import { RecordJSON, ResourceJSON, PropertyType } from '@adminjs/common/interfaces'
+import { RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
+import PropertyType from '../property-type'
 import { useTranslation } from '../../hooks'
 
 export type FilterProps = {
@@ -47,7 +46,6 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
   const match = useMatch<MatchProps>(location.pathname)
   const { translateLabel, translateButton } = useTranslation()
   const initialLoad = useRef(true)
-
   useEffect(() => {
     if (initialLoad.current) {
       initialLoad.current = false
@@ -68,8 +66,7 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
     })
     toggleFilter()
     search.set('page', '1')
-    console.log('navigate to',`${Location.pathname}?${search.toString()}`)
-    navigate(`${Location.pathname}?${search.toString()}`)
+    navigate(`${location.pathname}?${search.toString()}`)
     return false
   }
   
@@ -84,7 +81,7 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
     }
     const query = filteredSearch.toString() === '' ? `?${filteredSearch.toString()}` : ''
     toggleFilter()
-    navigate(Location.pathname + query)
+    navigate(location.pathname + query)
     setFilter({})
   }
 
@@ -98,7 +95,6 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
     })
   }
   
-  console.log('FilterDrawer - properties',properties)
   return (
     <Drawer variant="filter" isHidden={!isVisible} as="form" onSubmit={handleSubmit}>
       <DrawerContent>
@@ -126,7 +122,7 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
             />
           ))}
         </Box>
-      </DrawerContent>
+      </DrawerContent> 
       <DrawerFooter>
         <Button variant="primary" size="lg">
           {translateButton('applyChanges', resource.id)}
@@ -140,3 +136,8 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
 }
 
 export default FilterDrawer
+
+
+
+
+
