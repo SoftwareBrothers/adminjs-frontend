@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from 'react'
-//JMW
 import { useNavigate } from 'react-router-dom'
 import {
   Placeholder, TableRow, TableCell, CheckBox, ButtonGroup,
@@ -7,10 +6,8 @@ import {
 
 import PropertyType from '../../property-type'
 import { buildActionClickHandler } from '../../../interfaces'
-import { ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
+import { ActionJSON, RecordJSON, ResourceJSON, ActionResponse, RecordActionResponse } from '@adminjs/common/interfaces'
 import { display } from './utils/display'
-//import { ActionResponse, RecordActionResponse } from '../../../../backend/actions/action.interface'
-import { ActionResponse, RecordActionResponse } from '@adminjs/common/interfaces'
 
 import mergeRecordResponse from '../../../hooks/use-record/merge-record-response'
 import { useActionResponseHandler } from '../../../hooks'

@@ -1,7 +1,4 @@
-//import { ActionJSON, RecordJSON, ResourceJSON } from '../../../interfaces'
-//import { ActionResponse } from '../../../../backend/actions/action.interface'
-import { ActionResponse } from '@adminjs/common/interfaces'
-import { ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
+import { ActionResponse, ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
 
 
 /**

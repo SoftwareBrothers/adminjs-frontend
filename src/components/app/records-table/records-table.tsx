@@ -5,12 +5,8 @@ import RecordInList from './record-in-list'
 import RecordsTableHeader from './records-table-header'
 import NoRecords from './no-records'
 
-
-//import { RecordJSON, ResourceJSON } from '../../../interfaces'
-import { RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
+import { RecordJSON, ResourceJSON, ActionResponse } from '@adminjs/common/interfaces'
 import SelectedRecords from './selected-records'
-//import { ActionResponse } from '../../../../backend/actions/action.interface'
-import { ActionResponse } from '@adminjs/common/interfaces'
 
 /**
  * @alias RecordsTableProps

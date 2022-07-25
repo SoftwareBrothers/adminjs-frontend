@@ -1,5 +1,3 @@
-//import { RecordJSON } from '../../interfaces'
-//import { RecordActionResponse } from '../../../backend/actions/action.interface'
 import { RecordJSON, RecordActionResponse } from '@adminjs/common/interfaces'
 
 

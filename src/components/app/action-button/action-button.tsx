@@ -3,12 +3,9 @@
 /* eslint-disable no-restricted-globals */
 
 import React, { ReactElement } from 'react'
-//import { ActionResponse } from '../../../../backend/actions/action.interface'
-import { ActionResponse } from '@adminjs/common/interfaces'
-
 
 import { buildActionTestId } from '../../../interfaces'
-import {  ActionJSON } from '@adminjs/common/interfaces'
+import {  ActionJSON, ActionResponse } from '@adminjs/common/interfaces'
 
 import { useAction } from '../../../hooks'
 

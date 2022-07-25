@@ -17,8 +17,6 @@ import * as password from './password'
 import * as currency from './currency'
 import * as phone from './phone'
 import { BasePropertyComponentProps } from './base-property-props'
-//import { PropertyType } from '../../../backend/adapters/property/base-property'
-//import { PropertyJSON } from '../../interfaces'
 import { PropertyJSON, PropertyType } from '@adminjs/common/interfaces'
 
 

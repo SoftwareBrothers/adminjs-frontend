@@ -2,8 +2,6 @@ import { DatePicker, FormGroup, Label } from '@adminjs/design-system'
 import React from 'react'
 import { useTranslation } from '../../../hooks/use-translation'
 import { FilterPropertyProps } from '../base-property-props'
-//import * as BackendFilter from '../../../backend/utils/filter/filter'
-// const { PARAM_SEPARATOR } = BackendFilter
 import { PARAM_SEPARATOR } from '@adminjs/common/constants'
 
 

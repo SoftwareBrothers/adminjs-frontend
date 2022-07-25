@@ -6,12 +6,8 @@ import {
   ActionParams,
 } from '@adminjs/common/utils'
 
-
 /* eslint-disable no-alert */
-//import { RecordJSON } from '../interfaces'
-import { RecordJSON } from '@adminjs/common/interfaces'
-//import { RecordActionResponse, ActionResponse, BulkActionResponse } from '../../backend/actions/action.interface'
-import { RecordActionResponse, ActionResponse, BulkActionResponse } from '@adminjs/common/interfaces'
+import { RecordJSON, RecordActionResponse, ActionResponse, BulkActionResponse } from '@adminjs/common/interfaces'
 
 import config from './../FrontConfig.json'
 

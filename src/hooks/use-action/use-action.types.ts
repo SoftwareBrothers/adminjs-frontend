@@ -6,7 +6,6 @@ import {
   RecordActionParams, ActionParams,
 } from '@adminjs/common/utils'
 
-//import { ActionResponse } from '../../../backend/actions/action.interface'
 import { ActionResponse } from '@adminjs/common/interfaces'
 
 export type DifferentActionParams = {

@@ -1,14 +1,10 @@
 import { useState, useEffect } from 'react'
 
 import { AxiosResponse } from 'axios'
-//JMW
 import { useLocation, useNavigate } from 'react-router-dom'
-//import { RecordJSON } from '../../interfaces'
-import { RecordJSON } from '@adminjs/common/interfaces'
+import { RecordJSON, ListActionResponse } from '@adminjs/common/interfaces'
 import useNotice from '../use-notice'
 import ApiClient from '../../utils/api-client'
-//import { ListActionResponse } from '../../../backend/actions/list/list-action'
-import { ListActionResponse } from '@adminjs/common/interfaces'
 import { useTranslation } from '../use-translation'
 import { hasForceRefresh, removeForceRefresh } from '../../components/actions/utils/append-force-refresh'
 import { UseRecordsResult } from './use-records-result.type'

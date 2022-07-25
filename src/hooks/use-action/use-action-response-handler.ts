@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-//JMW
-//import { useHistory, useLocation } from 'react-router'
+
 import { useNavigate, useLocation } from 'react-router-dom'
-//import { ActionResponse } from '../../../backend/actions/action.interface'
 import { ActionResponse } from '@adminjs/common/interfaces'
 import { appendForceRefresh } from '../../components/actions/utils/append-force-refresh'
 import { ActionCallCallback } from '.'
