@@ -1,4 +1,5 @@
-import { BulkActionParams } from '../backend/utils/view-helpers/view-helpers'
+import { BulkActionParams } from '@adminjs/common/utils'
+
 import { ActionJSON } from '..'
 import { DifferentActionParams } from '../../hooks/use-action/use-action.types'
 

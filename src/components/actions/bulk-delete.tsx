@@ -2,7 +2,7 @@
 import { Button, DrawerContent, DrawerFooter, Icon, MessageBox, Table, TableBody, TableCell, TableRow, Text } from '@adminjs/design-system'
 import React, { useState } from 'react'
 
-import { RouteComponentProps } from 'react-router'
+import { RouteComponentProps } from 'react-router-dom'
 import withNotice, { AddNoticeProps } from '../../hoc/with-notice'
 import ApiClient from '../../utils/api-client'
 import PropertyType from '../property-type'
@@ -12,7 +12,7 @@ import { appendForceRefresh } from './utils/append-force-refresh'
 import { useTranslation } from '../../hooks'
 import ActionHeader from '../app/action-header/action-header'
 
-import withRouter from '../../_tmp/with-router'
+import withRouter from '../../hoc/with-router'
 
 /**
  * @name ShowAction

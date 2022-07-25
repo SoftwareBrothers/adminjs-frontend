@@ -1,6 +1,5 @@
 import React, { MouseEvent, SyntheticEvent, useState, useEffect, useRef } from 'react'
-//JMW
-import { useNavigate, useLocation, useMatch } from 'react-router-dom'
+import { useNavigate, useLocation, useMatch, useParams } from 'react-router-dom'
 import {
   Box,
   H3,
@@ -11,8 +10,9 @@ import {
   DrawerFooter,
 } from '@adminjs/design-system'
 
-import PropertyType from '../property-type'
-import { RecordJSON, ResourceJSON } from '../../interfaces'
+//import PropertyType from '../property-type'
+//import { RecordJSON, ResourceJSON } from '../../interfaces'
+import { RecordJSON, ResourceJSON, PropertyType } from '@adminjs/common/interfaces'
 import { useTranslation } from '../../hooks'
 
 export type FilterProps = {
@@ -38,15 +38,13 @@ const parseQuery = (location): any => {
 }
 
 export const FilterDrawer: React.FC<FilterProps> = (props) => {
-  
   const { resource, isVisible, toggleFilter } = props
   const properties = resource.filterProperties
-
   const location = useLocation()
-  
-  const [filter, setFilter] = useState(parseQuery(location))
-  //const match = useMatch<MatchProps>()
+  const params = useParams()
   const navigate = useNavigate()
+  const [filter, setFilter] = useState(parseQuery(location))
+  const match = useMatch<MatchProps>(location.pathname)
   const { translateLabel, translateButton } = useTranslation()
   const initialLoad = useRef(true)
 
@@ -56,8 +54,7 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
     } else {
       setFilter({})
     }
-  }, []) 
-  // }, [match.params.resourceId])  
+  }, [params.resourceId]) 
   
   const handleSubmit = (event: SyntheticEvent): false => {
     event.preventDefault()
@@ -71,10 +68,11 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
     })
     toggleFilter()
     search.set('page', '1')
+    console.log('navigate to',`${Location.pathname}?${search.toString()}`)
     navigate(`${Location.pathname}?${search.toString()}`)
     return false
   }
-
+  
   const resetFilter = (event: MouseEvent): void => {
     event.preventDefault()
     const filteredSearch = new URLSearchParams()
@@ -99,7 +97,8 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
       [propertyName as string]: value,
     })
   }
-
+  
+  console.log('FilterDrawer - properties',properties)
   return (
     <Drawer variant="filter" isHidden={!isVisible} as="form" onSubmit={handleSubmit}>
       <DrawerContent>

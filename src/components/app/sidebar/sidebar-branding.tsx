@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { BrandingOptions } from '../../../adminjs-options.interface'
-import ViewHelpers from '../../../backend/utils/view-helpers/view-helpers'
+import { ViewHelpers } from '@adminjs/common/utils'
 import allowOverride from '../../../hoc/allow-override'
 
 type Props = {

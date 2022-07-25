@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import type { useLocation } from 'react-router'
+import type { useLocation } from 'react-router-dom'
 import { combineReducers, createStore } from 'redux'
 import {
   ADD_NOTICE, ASSETS_INITIALIZE,
@@ -11,8 +11,11 @@ import { Assets, BrandingOptions, VersionProps } from '../../adminjs-options.int
 import { CurrentAdmin } from '../../current-admin.interface'
 import { Locale } from '../../locale/config'
 import { NoticeMessage } from '../hoc/with-notice'
-import { PageJSON, ResourceJSON } from '../interfaces'
-import { DEFAULT_PATHS } from './../constants'
+//import { PageJSON, ResourceJSON } from '../interfaces'
+import { PageJSON, ResourceJSON } from '@adminjs/common/interfaces'
+
+//import { DEFAULT_PATHS } from './../constants'
+import { DEFAULT_PATHS } from '@adminjs/common/constants'
 
 export type DashboardInState = {
   component?: string;

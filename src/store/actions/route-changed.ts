@@ -1,4 +1,4 @@
-import type { useLocation } from 'react-router'
+import type { useLocation } from 'react-router-dom'
 
 export const INITIAL_ROUTE = 'INITIAL_ROUTE'
 export const ROUTE_CHANGED = 'ROUTE_CHANGED'

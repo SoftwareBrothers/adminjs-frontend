@@ -1,5 +1,8 @@
-import { BasePropertyJSON, PropertyJSON } from '../../../interfaces'
-import { DELIMITER } from './../../../utils_/flat/constants'
+//import { BasePropertyJSON, PropertyJSON } from '../../../interfaces'
+import { BasePropertyJSON, PropertyJSON  } from '@adminjs/common/interfaces'
+//import { DELIMITER } from './../../../utils_/flat/constants'
+import { DELIMITER } from '@adminjs/common'
+
 
 export function convertToSubProperty(
   property: PropertyJSON,

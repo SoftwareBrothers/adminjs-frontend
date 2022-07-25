@@ -1,7 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { Box, Badge, H3, H2, ButtonGroup, cssClass } from '@adminjs/design-system'
-//JMW
 import { useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../breadcrumbs'
 import { ActionHeaderProps } from './action-header-props'
@@ -9,7 +8,9 @@ import { actionsToButtonGroup } from './actions-to-button-group'
 import { StyledBackButton } from './styled-back-button'
 
 import { useActionResponseHandler, useTranslation } from '../../../hooks'
-import { ActionJSON, buildActionClickHandler } from '../../../interfaces/action'
+import { buildActionClickHandler } from '../../../interfaces/action'
+import { ActionJSON } from '@adminjs/common/interfaces'
+
 
 /**
  * Header of an action. It renders Action name with buttons for all the actions.

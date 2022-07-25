@@ -4,12 +4,16 @@ import {
   BulkActionParams,
   RecordActionParams,
   ActionParams,
-} from '../../backend/utils/view-helpers/view-helpers'
+} from '@adminjs/common/utils'
+
 
 /* eslint-disable no-alert */
-import { RecordJSON } from '../interfaces'
-import { RecordActionResponse, ActionResponse, BulkActionResponse } from '../../backend/actions/action.interface'
-import config from './../config/FrontConfig.json'
+//import { RecordJSON } from '../interfaces'
+import { RecordJSON } from '@adminjs/common/interfaces'
+//import { RecordActionResponse, ActionResponse, BulkActionResponse } from '../../backend/actions/action.interface'
+import { RecordActionResponse, ActionResponse, BulkActionResponse } from '@adminjs/common/interfaces'
+
+import config from './../FrontConfig.json'
 
 let globalAny: any = {}
 

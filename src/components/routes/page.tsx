@@ -1,7 +1,7 @@
 import React, { ReactNode, FunctionComponent } from 'react'
 import { connect } from 'react-redux'
 
-import { RouteComponentProps } from 'react-router'
+import { RouteComponentProps } from 'react-router-dom'
 import ErrorBoundary from '../app/error-boundary'
 import { ReduxState } from '../../store/store'
 import ErrorMessageBox from '../app/error-message'

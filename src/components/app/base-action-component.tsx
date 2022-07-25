@@ -5,7 +5,8 @@ import { Trans } from 'react-i18next'
 import { useTranslation } from '../../hooks'
 import { actions } from '../actions'
 import { ActionProps } from '../actions/action.props'
-import { DOCS } from './../../constants'
+//import { DOCS } from './../../constants'
+import { DOCS } from '@adminjs/common/constants'
 import ErrorBoundary from './error-boundary'
 
 declare const AdminJS: {

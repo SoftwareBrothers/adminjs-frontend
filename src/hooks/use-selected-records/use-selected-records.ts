@@ -1,5 +1,7 @@
 import { useState } from 'react'
-import { RecordJSON } from '../../interfaces'
+//import { RecordJSON } from '../../interfaces'
+import { RecordJSON } from '@adminjs/common/interfaces'
+
 import { UseSelectedRecordsResult } from './use-selected-records-result.type'
 
 /**

@@ -1,5 +1,6 @@
 import { expect } from 'chai'
-import { RecordJSON } from '../../../interfaces'
+//import { RecordJSON } from '../../../interfaces'
+import { RecordJSON } from '@adminjs/common/interfaces'
 import { removeSubProperty } from './remove-sub-property'
 
 import factory from '../../spec/factory'

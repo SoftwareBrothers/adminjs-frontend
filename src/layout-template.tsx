@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { combineStyles } from '@adminjs/design-system'
-
-import ViewHelpers from '../backend/utils/view-helpers/view-helpers'
+import { ViewHelpers } from '@adminjs/common/utils'
 import { initializeStore } from './store'
 import AdminJS from '../adminjs'
 import { CurrentAdmin } from '../current-admin.interface'

@@ -3,7 +3,8 @@ import factory from 'factory-girl'
 
 import '../../../spec/record-json.factory'
 import '../../../spec/action-json.factory'
-import { RecordJSON, ActionJSON } from '../../../../interfaces'
+//import { RecordJSON, ActionJSON } from '../../../../interfaces'
+import { RecordJSON, ActionJSON } from '@adminjs/common/interfaces'
 
 import getBulkActionsFromRecords from './get-bulk-actions-from-records'
 

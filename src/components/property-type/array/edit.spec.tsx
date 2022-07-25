@@ -9,7 +9,9 @@ import Edit from './edit'
 import TestContextProvider from '../../spec/test-context-provider'
 import '../../spec/property-json.factory'
 import '../../spec/record-json.factory'
-import { RecordJSON, PropertyJSON, ResourceJSON } from '../../../interfaces'
+//import { RecordJSON, PropertyJSON, ResourceJSON } from '../../../interfaces'
+import { RecordJSON, PropertyJSON, ResourceJSON } from '@adminjs/common/interfaces'
+
 import ItemComponent from '../default-type/edit'
 import * as TranslateFunctionsFactory from '../../../../utils/translate-functions.factory'
 

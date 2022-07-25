@@ -1,8 +1,11 @@
-import { Section, ValueGroup } from '@adminjs/design-system'
 import React, { ReactNode } from 'react'
+import { Section, ValueGroup } from '@adminjs/design-system'
+import { flat } from '@adminjs/common'
+//import { flat } from './../../../utils_'
 
 import { PropertyJSON, RecordJSON } from '../../../interfaces'
-import { flat } from './../../../utils_'
+
+
 import { convertToSubProperty } from './convert-to-sub-property'
 
 type Props = {

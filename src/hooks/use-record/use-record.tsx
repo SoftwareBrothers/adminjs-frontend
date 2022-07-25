@@ -1,9 +1,11 @@
 import { AxiosResponse } from 'axios'
 import { Dispatch, SetStateAction, useCallback, useState } from 'react'
-import { RecordActionResponse } from '../../backend/actions/action.interface'
-import { RecordJSON } from '../../interfaces'
+//import { RecordActionResponse } from '../../backend/actions/action.interface'
+//import { RecordJSON } from '../../interfaces'
+import { RecordJSON, RecordActionResponse } from '@adminjs/common/interfaces'
 import ApiClient, { RecordActionAPIParams } from '../../utils/api-client'
-import { flat } from '../../utils_'
+//import { flat } from '../../utils_'
+import { flat } from '@adminjs/common/utils'
 import useNotice from '../use-notice'
 import { filterRecordParams, isPropertyPermitted } from './filter-record'
 import isEntireRecordGiven from './is-entire-record-given'
@@ -57,6 +59,7 @@ export const useRecord = (
     value?: any,
     incomingRecord?: RecordJSON,
   ): void => {
+    console.log('incomingRecord', incomingRecord)
     if (isEntireRecordGiven(propertyOrRecord, value)) {
       setFilteredRecord(propertyOrRecord as RecordJSON)
     } else if (isPropertyPermitted(propertyOrRecord as string, options)) {

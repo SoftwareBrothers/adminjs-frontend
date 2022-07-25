@@ -1,4 +1,6 @@
-import { ResourceJSON } from '../../interfaces'
+//import { ResourceJSON } from '../../interfaces'
+import { ResourceJSON } from '@adminjs/common/interfaces'
+
 
 export const RESOURCES_INITIALIZE = 'RESOURCES_INITIALIZE'
 

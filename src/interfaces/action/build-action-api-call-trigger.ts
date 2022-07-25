@@ -1,6 +1,7 @@
 /* eslint-disable arrow-parens */
 import { AxiosResponse } from 'axios'
-import { ActionResponse } from '../../../backend'
+//import { ActionResponse } from '../../../backend'
+import { ActionResponse } from '@adminjs/common/interfaces'
 import { DifferentActionParams, useActionResponseHandler } from '../../hooks'
 import { ActionJSON } from './action-json.interface'
 import { callActionApi } from './call-action-api'

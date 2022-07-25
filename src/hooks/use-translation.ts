@@ -1,9 +1,10 @@
-import { i18n, TFunction } from 'i18next';
+import { i18n, TFunction } from 'i18next'
 import {
   useTranslation as originalUseTranslation
-} from 'react-i18next';
+} from 'react-i18next'
 
-import { createFunctions, TranslateFunctions } from '../utils_/translate-functions.factory';
+//import { createFunctions, TranslateFunctions } from '../utils_/translate-functions.factory';
+import { createFunctions, TranslateFunctions } from '@adminjs/common/utils'
 
 /**
  * Extends {@link TranslateFunctions}. Apart from that it also returns all the properties

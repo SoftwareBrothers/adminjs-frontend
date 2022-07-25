@@ -1,8 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 
-import { ActionResponse } from '../../../backend/actions/action.interface'
+//import { ActionResponse } from '../../../backend/actions/action.interface'
+import { ActionResponse } from '@adminjs/common/interfaces'
 
-import { ActionJSON, buildActionCallApiTrigger, buildActionClickHandler } from '../../interfaces'
+import { buildActionCallApiTrigger, buildActionClickHandler } from '../../interfaces'
+import { ActionJSON } from '@adminjs/common/interfaces'
+
 
 import { DifferentActionParams, ActionCallCallback, UseActionResult } from './use-action.types'
 import { actionHref } from '../../interfaces/action/action-href'

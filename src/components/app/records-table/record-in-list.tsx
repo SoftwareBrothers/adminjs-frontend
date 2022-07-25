@@ -6,9 +6,12 @@ import {
 } from '@adminjs/design-system'
 
 import PropertyType from '../../property-type'
-import { ActionJSON, buildActionClickHandler, RecordJSON, ResourceJSON } from '../../../interfaces'
+import { buildActionClickHandler } from '../../../interfaces'
+import { ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
 import { display } from './utils/display'
-import { ActionResponse, RecordActionResponse } from '../../../../backend/actions/action.interface'
+//import { ActionResponse, RecordActionResponse } from '../../../../backend/actions/action.interface'
+import { ActionResponse, RecordActionResponse } from '@adminjs/common/interfaces'
+
 import mergeRecordResponse from '../../../hooks/use-record/merge-record-response'
 import { useActionResponseHandler } from '../../../hooks'
 import { actionsToButtonGroup } from '../action-header/actions-to-button-group'

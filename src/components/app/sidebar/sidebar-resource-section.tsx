@@ -1,7 +1,8 @@
 import React, { FC } from 'react'
 import { Navigation } from '@adminjs/design-system'
 import { useTranslation } from '../../../hooks/use-translation'
-import { ResourceJSON } from '../../../interfaces'
+//import { ResourceJSON } from '../../../interfaces'
+import { ResourceJSON } from '@adminjs/common/interfaces'
 import allowOverride from '../../../hoc/allow-override'
 import { useNavigationResources } from '../../../hooks'
 

@@ -3,17 +3,19 @@ import React, { FC, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { DrawerContent, Box, DrawerFooter, Button, Icon } from '@adminjs/design-system'
 
-import PropertyType from '../property-type'
+//import PropertyType from '../property-type'
+//import { RecordJSON } from '../../interfaces'
+import { RecordJSON, PropertyType } from '@adminjs/common/interfaces'
 
 import { ActionProps } from './action.props'
 import ActionHeader from '../app/action-header/action-header'
-import { RecordJSON } from '../../interfaces'
 import useRecord from '../../hooks/use-record/use-record'
 import { appendForceRefresh } from './utils/append-force-refresh'
 import { useTranslation } from '../../hooks/use-translation'
 import LayoutElementRenderer from './utils/layout-element-renderer'
 
 const New: FC<ActionProps> = (props) => {
+
   const { record: initialRecord, resource, action } = props
   const {
     record,
@@ -22,6 +24,8 @@ const New: FC<ActionProps> = (props) => {
     loading,
     setRecord,
   } = useRecord(initialRecord, resource.id)
+  
+  console.log('New',action)
   const { translateButton } = useTranslation()
   const navigate = useNavigate()
 
@@ -54,7 +58,7 @@ const New: FC<ActionProps> = (props) => {
       flexDirection="column"
     >
       <DrawerContent>
-        {action?.showInDrawer ? <ActionHeader {...props} /> : null}
+        {action?.showInDrawer ? <ActionHeader {...props} /> : null} 
         {action.layout ? action.layout.map((layoutElement, i) => (
           <LayoutElementRenderer
             // eslint-disable-next-line react/no-array-index-key
@@ -75,7 +79,7 @@ const New: FC<ActionProps> = (props) => {
             record={record as RecordJSON}
           />
         ))}
-      </DrawerContent>
+      </DrawerContent> 
       <DrawerFooter>
         <Button variant="primary" size="lg" type="submit" data-testid="button-save" disabled={loading}>
           {loading ? (<Icon icon="Fade" spin />) : null}
@@ -90,3 +94,6 @@ export {
   New as default,
   New,
 }
+
+
+

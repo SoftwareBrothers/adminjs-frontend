@@ -1,9 +1,10 @@
 import React from 'react'
 import * as DesignSystem from '@adminjs/design-system'
 import { ActionProps } from '../action.props'
-import PropertyType from '../../property-type'
-import { PropertyPlace } from '../../../interfaces/property-json/property-json.interface'
-import { ParsedLayoutElement } from '../../../../backend/utils/layout-element-parser'
+//import PropertyType from '../../property-type'
+//import { PropertyPlace } from '../../../interfaces/property-json/property-json.interface'
+//import { ParsedLayoutElement } from '../../../../backend/utils/layout-element-parser'
+import { PropertyType, PropertyPlace, ParsedLayoutElement } from '@adminjs/common/interfaces'
 import { BasePropertyProps } from '../../property-type/base-property-props'
 
 type Props = ActionProps & {

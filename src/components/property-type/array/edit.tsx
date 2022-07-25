@@ -2,8 +2,11 @@ import { Box, Button, FormGroup, FormMessage, Icon, Section } from '@adminjs/des
 import React, { MouseEvent, useCallback } from 'react'
 import { DragDropContext, Draggable, Droppable, DropResult } from 'react-beautiful-dnd'
 
-import { PropertyJSON } from '../../../interfaces'
-import { flat } from '../../../utils'
+//import { PropertyJSON } from '../../../interfaces'
+import { PropertyJSON } from '@adminjs/common/interfaces'
+
+//import { flat } from '../../../utils'
+import { flat } from '@adminjs/common'
 import { EditPropertyPropsInArray } from '../base-property-props'
 import { PropertyLabel } from '../utils/property-label'
 import AddNewItemButton from './add-new-item-translation'
@@ -64,6 +67,8 @@ const ItemRenderer: React.FC<EditProps & ItemRendererProps> = (props) => {
 
 const InputsInSection: React.FC<EditProps> = (props) => {
   const { property, record, resource, onChange } = props
+  console.log('record', record)
+  console.log('property', property)
   const items = flat.get(record.params, property.path) || []
 
   const addNew = useCallback((event: MouseEvent): boolean => {

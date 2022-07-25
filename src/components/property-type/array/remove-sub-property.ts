@@ -1,5 +1,7 @@
-import { RecordJSON } from '../../../interfaces'
-import { flat } from '../../../utils_'
+//import { RecordJSON } from '../../../interfaces'
+import { RecordJSON } from '@adminjs/common/interfaces'
+//import { flat } from '../../../utils_'
+import { flat } from '@adminjs/common'
 
 /**
  * Removes selected array item from given record. It performs following tasks:

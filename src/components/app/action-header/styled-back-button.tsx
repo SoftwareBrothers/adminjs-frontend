@@ -8,7 +8,7 @@ import { Link as RouterLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 import { useSelector } from 'react-redux'
-import ViewHelpers from '../../../backend/utils/view-helpers/view-helpers'
+import { ViewHelpers } from '@adminjs/common/utils'
 import { ReduxState, RouterProps } from '../../../store'
 
 

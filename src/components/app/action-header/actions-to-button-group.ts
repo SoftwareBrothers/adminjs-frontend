@@ -1,6 +1,7 @@
 import { ButtonGroupProps, ButtonInGroupProps } from '@adminjs/design-system'
 
-import { actionHref, ActionJSON, buildActionTestId } from '../../../interfaces'
+import { actionHref, buildActionTestId } from '../../../interfaces'
+import { ActionJSON } from '@adminjs/common/interfaces'
 import { DifferentActionParams } from '../../../hooks'
 
 export type actionsToButtonGroupOptions = {

@@ -1,5 +1,7 @@
-import { RecordJSON } from '../../interfaces'
-import { flat } from '../../utils_/flat'
+//import { RecordJSON } from '../../interfaces'
+import { RecordJSON } from '@adminjs/common/interfaces'
+//import { flat } from '../../utils_/flat'
+import { flat } from '@adminjs/common'
 import { UseRecordOptions } from './use-record.type'
 
 export const filterRecordParams = function<T extends RecordJSON> (

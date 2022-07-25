@@ -1,5 +1,7 @@
-import { PropertyJSON } from '../../../interfaces'
-import { DELIMITER } from './../../../utils_/flat/constants'
+//import { PropertyJSON } from '../../../interfaces'
+import { PropertyJSON } from '@adminjs/common/interfaces'
+//import { DELIMITER } from './../../../utils_/flat/constants'
+import { DELIMITER } from '@adminjs/common'
 
 /**
  * Converts property: PropertyJSON from an array to a sub-property for an actual item in the array

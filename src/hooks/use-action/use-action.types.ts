@@ -4,8 +4,10 @@ import {
   BulkActionParams,
   ResourceActionParams,
   RecordActionParams, ActionParams,
-} from '../../../backend/utils/view-helpers/view-helpers'
-import { ActionResponse } from '../../../backend/actions/action.interface'
+} from '@adminjs/common/utils'
+
+//import { ActionResponse } from '../../../backend/actions/action.interface'
+import { ActionResponse } from '@adminjs/common/interfaces'
 
 export type DifferentActionParams = {
   resourceId: ActionParams['resourceId'];

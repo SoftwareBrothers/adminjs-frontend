@@ -1,8 +1,7 @@
 import { Navigation, NavigationElementProps } from '@adminjs/design-system'
 import React from 'react'
-//JMW
 import { useLocation, useNavigate } from 'react-router-dom'
-import ViewHelpers from '../../../backend/utils/view-helpers/view-helpers'
+import { ViewHelpers } from '@adminjs/common/utils'
 import { useTranslation } from '../../../hooks/use-translation'
 import { ReduxState } from '../../../store/store'
 

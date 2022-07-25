@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation } from 'react-router'
+import { useLocation } from 'react-router-dom'
 import { useLocalStorage } from '../hooks/use-local-storage'
 import { ReduxState, RouterProps } from '../store'
 import { changeRoute, initializeRoute } from '../store/actions/route-changed'

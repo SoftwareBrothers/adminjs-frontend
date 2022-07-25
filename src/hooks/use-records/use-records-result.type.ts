@@ -1,6 +1,7 @@
 import { AxiosResponse } from 'axios'
 import { ListActionResponse } from '../../../backend'
-import { RecordJSON } from '../../interfaces'
+//import { RecordJSON } from '../../interfaces'
+import { RecordJSON } from '@adminjs/common/interfaces'
 
 /**
  * Result of the {@link useRecords} hook.

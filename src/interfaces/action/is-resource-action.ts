@@ -1,4 +1,5 @@
-import { ResourceActionParams } from '../backend/utils/view-helpers/view-helpers'
+import { ResourceActionParams } from '@adminjs/common/utils'
+
 import { ActionJSON } from '..'
 import { DifferentActionParams } from '../../hooks/use-action/use-action.types'
 

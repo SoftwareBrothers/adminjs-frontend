@@ -2,11 +2,13 @@ import React, { ReactNode } from 'react'
 import { NavLink } from 'react-router-dom'
 
 import { cssClass, Icon } from '@adminjs/design-system'
-import { RouteComponentProps } from 'react-router'
+import { RouteComponentProps } from 'react-router-dom'
 
-import { BasePropertyJSON } from '../../interfaces'
+//import { BasePropertyJSON } from '../../interfaces'
+import { BasePropertyJSON } from '@adminjs/common/interfaces'
 
-import withRouter from '../../_tmp/with-router'
+
+import withRouter from '../../hoc/with-router'
 
 
 export type SortLinkProps = {

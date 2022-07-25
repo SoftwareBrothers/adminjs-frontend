@@ -2,10 +2,11 @@ import { Box, cssClass, Text } from '@adminjs/design-system'
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-
-import ViewHelpers from '../../backend/utils/view-helpers/view-helpers'
+import { ViewHelpers } from '@adminjs/common/utils'
 import { useTranslation } from '../../hooks/use-translation'
-import { RecordJSON, ResourceJSON } from '../../interfaces'
+//import { RecordJSON, ResourceJSON } from '../../interfaces'
+import { RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
+
 
 export const BreadcrumbLink = styled(Link)`
   color: ${({ theme }): string => theme.colors.grey40};

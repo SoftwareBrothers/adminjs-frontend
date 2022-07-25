@@ -5,14 +5,18 @@ import { Loader } from '@adminjs/design-system'
 
 import BaseActionComponent from '../app/base-action-component'
 import ApiClient from '../../utils/api-client'
-import { RecordActionParams } from '../backend/utils/view-helpers/view-helpers'
-import { ActionJSON, RecordJSON } from '../../interfaces'
+import { ResourceActionParams } from '@adminjs/common/utils'
+//import { ActionJSON, RecordJSON } from '../../interfaces'
+import { ActionJSON, RecordJSON } from '@adminjs/common/interfaces'
+
 import { NoResourceError, NoActionError, NoRecordError } from '../app/error-message'
 import Wrapper from './utils/wrapper'
 import { ActionHeader } from '../app'
 import { useNotice, useResource, useTranslation } from '../../hooks'
 import DrawerPortal from '../app/drawer-portal'
-import { ActionResponse, RecordActionResponse } from '../../../backend/actions/action.interface'
+//import { ActionResponse, RecordActionResponse } from '../../../backend/actions/action.interface'
+import { ActionResponse, RecordActionResponse } from '@adminjs/common/interfaces'
+
 import mergeRecordResponse from '../../hooks/use-record/merge-record-response'
 
 const api = new ApiClient()
