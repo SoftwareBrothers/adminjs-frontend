@@ -77,11 +77,5 @@ const App: React.FC = () => {
 
 export default App
 
-{/* <Routes>
-  <Route path={recordActionUrl} element={<RecordAction/>} />
-  <Route path={resourceActionUrl} element={<ResourceAction/>} />
-  <Route path={bulkActionUrl} element={<BulkAction/>} />
-</Routes> */}
-
 
 

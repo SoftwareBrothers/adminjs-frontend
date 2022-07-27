@@ -6,8 +6,7 @@
   "scripts": {
     "lint": "eslint './src/**/*' './*' --ext .ts,.tsx,.js,.jsx",
     "build": "babel src --out-dir lib --copy-files --extensions '.ts,.js,.jsx,.tsx'",
-    "types": "tsc",
-    "test": "node test.ts"
+    "types": "tsc"
   },
   "repository": {
     "type": "git",
@@ -43,7 +42,6 @@
     "@adminjs/design-system": "^3.0.0",
     "@adminjs/common": "*",
     "axios": "^0.27.2",
-    "flat": "^5.0.2",
     "i18next": "^21.8.13",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.0",
@@ -54,7 +52,6 @@
     "react-router": "^6.3.0",
     "react-router-dom": "^6.3.0",
     "react-select": "^5.4.0",
-    "recharts": "^2.1.12",
     "redux": "^4.2.0",
     "styled-components": "^5.3.5",
     "typescript": "^4.7.4",

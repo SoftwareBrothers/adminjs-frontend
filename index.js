@@ -1,7 +1,7 @@
-const { Application } = require('./lib/adminjs.js')
-const { Login } = require('./lib/login.js')
+const { AdminJS } = require('./lib/adminjs')
+const { Login } = require('./lib/login')
 
 module.exports = {
-  Application,
+  AdminJS,
   Login
 }

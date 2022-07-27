@@ -26,14 +26,10 @@
       "skipLibCheck": true
   },
   "include": [
-      "./vendor-types/**/*",
       "./src/**/*",
       "./spec/**/*"
   ],
   "exclude": [
-      "./example-app/**/*",
       "./node-modules",
-      "./src/frontend/assets/**/*",
-      "./src/frontend/components/**/*stories.tsx",
   ]
 }

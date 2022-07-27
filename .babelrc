@@ -5,7 +5,7 @@
       "@babel/preset-env",
       {
         "targets": {
-          "node": "8"
+          "node": "14"
         }
       }
     ],
@@ -17,11 +17,5 @@
   "only": [
     "src/",
     "spec/"
-  ],
-  "ignore": [
-    "src/assets/scripts/app-bundle.development.js",
-    "src/assets/scripts/app-bundle.production.js",
-    "src/assets/scripts/global-bundle.development.js",
-    "src/assets/scripts/global-bundle.production.js"
   ]
 }

@@ -5,23 +5,11 @@ import {
   RecordActionParams,
   ActionParams,
 } from '@adminjs/common/utils'
-
 /* eslint-disable no-alert */
 import { RecordJSON, RecordActionResponse, ActionResponse, BulkActionResponse } from '@adminjs/common/interfaces'
 
-import config from './../FrontConfig.json'
-
-let globalAny: any = {}
-
-try {
-  globalAny = window
-} catch (error) {
-  if (error.message !== 'window is not defined') {
-    throw error
-  } else {
-    globalAny = { isOnServer: true }
-  }
-}
+import config from '../FrontConfig.json'
+console.log(config)
 
 /**
  * Type of an [axios request]{@link https://github.com/axios/axios/blob/master/index.d.ts#L43}
@@ -33,7 +21,6 @@ try {
  */
 
 const checkResponse = (response: AxiosResponse): void => {
-  if (globalAny.isOnServer) { return }
   const loginUrl = [config.adminApiUrl, config.paths.loginPath].join('')
   // if response has redirect to loginUrl
   if (response.request.responseURL
@@ -41,7 +28,7 @@ const checkResponse = (response: AxiosResponse): void => {
   ) {
     // eslint-disable-next-line no-undef
     alert('Your session expired. You will be redirected to login screen')
-    globalAny.location.assign(loginUrl)
+    Location.assign(loginUrl)
   }
 }
 
@@ -121,19 +108,26 @@ class ApiClient {
 
   private client: AxiosInstance
 
+  static getBaseUrl(): string {
+    return [config.adminApiUrl, config.paths.rootPath].join('')
+  }
+  
   constructor() {
     this.baseURL = ApiClient.getBaseUrl()
     this.client = axios.create({
       baseURL: this.baseURL,
     })
   }
-
-  static getBaseUrl(): string {
-    
-    if (globalAny.isOnServer) { return '' }
-    return [config.adminApiUrl, config.paths.rootPath].join('')
+  
+  async getMetadata(url): Promise<AxiosResponse<ActionResponse>> {
+    this.baseURL = url
+    this.client = axios.create({
+      baseURL: this.baseURL,
+    })
+    const response = await this.client.request( {url: `${url}/admin/api/metadata`} )
+    return response
   }
-
+  
   /**
    * Search by query string for records in a given resource.
    *
@@ -147,7 +141,6 @@ class ApiClient {
     resourceId: string;
     query: string;
   }): Promise<Array<RecordJSON>> {
-    if (globalAny.isOnServer) { return [] }
     const actionName = 'search'
     const response = await this.resourceAction({ resourceId, actionName, query })
     checkResponse(response)
@@ -176,7 +169,7 @@ class ApiClient {
     checkResponse(response)
     return response
   }
-
+ 
   /**
    * Invokes given record {@link Action} on the backend.
    *
