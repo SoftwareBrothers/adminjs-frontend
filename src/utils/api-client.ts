@@ -9,7 +9,6 @@ import {
 import { RecordJSON, RecordActionResponse, ActionResponse, BulkActionResponse } from '@adminjs/common/interfaces'
 
 import config from '../FrontConfig.json'
-console.log(config)
 
 /**
  * Type of an [axios request]{@link https://github.com/axios/axios/blob/master/index.d.ts#L43}

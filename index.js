@@ -1,7 +1,8 @@
-const { AdminJS } = require('./lib/adminjs')
-const { Login } = require('./lib/login')
+const moduleExports = require('./lib')
+const App = {}
+Object.keys(moduleExports).forEach((key) => {
+  if (key === '__esModule') return
+  App[key] = moduleExports[key]
 
-module.exports = {
-  AdminJS,
-  Login
-}
+})
+module.exports = App
