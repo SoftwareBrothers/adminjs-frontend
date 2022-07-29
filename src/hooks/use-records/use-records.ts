@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 
 import { AxiosResponse } from 'axios'
 import { useLocation, useNavigate } from 'react-router-dom'
@@ -8,8 +8,7 @@ import ApiClient from '../../utils/api-client'
 import { useTranslation } from '../use-translation'
 import { hasForceRefresh, removeForceRefresh } from '../../components/actions/utils/append-force-refresh'
 import { UseRecordsResult } from './use-records-result.type'
-
-const api = new ApiClient()
+import { ApiContext } from '../../api-context'
 
 /**
  * @load ./use-records.doc.md
@@ -24,6 +23,7 @@ const api = new ApiClient()
  * @type {Function}
  */
 function useRecords(resourceId: string): UseRecordsResult {
+  const api = useContext(ApiContext)
   const [records, setRecords] = useState<Array<RecordJSON>>([])
   const [loading, setLoading] = useState(false)
   const [perPage, setPerPage] = useState(10)
@@ -44,7 +44,6 @@ function useRecords(resourceId: string): UseRecordsResult {
     const promise = api.resourceAction({
       actionName: 'list', resourceId, params: query,
     }) as Promise<AxiosResponse<ListActionResponse>>
-
     promise.then((response) => {
       const listActionResponse = response.data as ListActionResponse
       if (listActionResponse.notice) {
@@ -54,7 +53,6 @@ function useRecords(resourceId: string): UseRecordsResult {
         navigate(listActionResponse.redirectUrl)
         return
       }
-
       setRecords(listActionResponse.records)
       setPage(listActionResponse.meta.page)
       setPerPage(listActionResponse.meta.perPage)

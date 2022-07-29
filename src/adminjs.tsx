@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, createContext} from 'react'
 import i18n from 'i18next'
 import { initReactI18next } from 'react-i18next'
 import { Provider } from 'react-redux'
@@ -8,17 +8,20 @@ import { ThemeProvider } from 'styled-components'
 import createStore from './store/store'
 import App from './components/application'
 import ApiClient from './utils/api-client'
+import apiConfig from './FrontConfig.json'
 let store =createStore()
 
 export const AdminJS = (props) => {
   const { url }  = props 
   
   const [config, setConfig] = useState({})
+  const [apiClient, setApiClient] = useState()
   
   useEffect( ()=> {
     const Api = new ApiClient()
-    Api.getMetadata(url)
+    Api.getMetadata(apiConfig.adminApiUrl)
       .then( response => {
+        setApiClient(Api)
         setConfig(response.data)
         store = createStore(response.data)
         initializeLocale(response.data.locale)
@@ -37,13 +40,13 @@ export const AdminJS = (props) => {
       interpolation: { escapeValue: false },
     }) 
   }
-
+  
   return (
     Object.keys(config).length === 0 ? null : (
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <BrowserRouter>
-            <App url={url} />
+            <App api={apiClient} />
           </BrowserRouter>
         </ThemeProvider>
       </Provider>

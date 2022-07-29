@@ -1,6 +1,7 @@
 import React, { useEffect, ReactNode, useState } from 'react'
 import { createPortal, render } from 'react-dom'
-import { Drawer, DEFAULT_DRAWER_WIDTH } from '@adminjs/design-system'
+import { createRoot } from 'react-dom/client'
+import { Drawer, DEFAULT_DRAWER_WIDTH, theme } from '@adminjs/design-system'
 import { ThemeProvider } from 'styled-components'
 
 /**
@@ -42,14 +43,17 @@ export const DrawerPortal: React.FC<DrawerPortalProps> = ({ children, width }) =
   if (!drawerElement && window) {
     const innerWrapper = window.document.createElement('div')
     const DrawerWrapper = (
-      <ThemeProvider theme={(window as any).THEME}>
+      <ThemeProvider theme={theme}>
         <Drawer id={DRAWER_PORTAL_ID} className="hidden" />
       </ThemeProvider>
     )
-    window.document.body.appendChild(innerWrapper)
-    render(DrawerWrapper, innerWrapper, () => {
+    
+    const container = window.document.body.appendChild(innerWrapper)
+    {/*     const root = createRoot(container, () => {
       setDrawerElement(window.document.getElementById(DRAWER_PORTAL_ID))
     })
+    const root = createRoot(container)
+    root.render(DrawerWrapper) */}
   }
 
   useEffect(() => {

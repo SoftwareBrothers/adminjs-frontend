@@ -8,7 +8,7 @@ import {
 /* eslint-disable no-alert */
 import { RecordJSON, RecordActionResponse, ActionResponse, BulkActionResponse } from '@adminjs/common/interfaces'
 
-import config from '../FrontConfig.json'
+//import config from '../FrontConfig.json'
 
 /**
  * Type of an [axios request]{@link https://github.com/axios/axios/blob/master/index.d.ts#L43}
@@ -104,26 +104,28 @@ export type GetPageAPIParams = AxiosRequestConfig & {
  */
 class ApiClient {
   private baseURL: string
-
+  private paths: {
+    rootPath: string,
+    loginPath: string,
+    logoutPath: string,
+  }
   private client: AxiosInstance
 
-  static getBaseUrl(): string {
-    return [config.adminApiUrl, config.paths.rootPath].join('')
+  getBaseUrl(url: string): string {
+    return [url, this.paths.rootPath].join('')
   }
-  
-  constructor() {
-    this.baseURL = ApiClient.getBaseUrl()
-    this.client = axios.create({
-      baseURL: this.baseURL,
-    })
-  }
-  
+    
   async getMetadata(url): Promise<AxiosResponse<ActionResponse>> {
-    this.baseURL = url
+
     this.client = axios.create({
       baseURL: this.baseURL,
     })
-    const response = await this.client.request( {url: `${url}/admin/api/metadata`} )
+    const response = await axios( {url: `${url}/admin/api/metadata`} )
+    this.paths = response.data.paths
+    this.baseURL = this.getBaseUrl(url)
+    this.client = axios.create({
+      baseURL: this.baseURL
+    })
     return response
   }
   
@@ -142,7 +144,7 @@ class ApiClient {
   }): Promise<Array<RecordJSON>> {
     const actionName = 'search'
     const response = await this.resourceAction({ resourceId, actionName, query })
-    checkResponse(response)
+    // checkResponse(response)
     return response.data.records
   }
 
@@ -165,7 +167,7 @@ class ApiClient {
       ...axiosParams,
       data,
     })
-    checkResponse(response)
+    // checkResponse(response)
     return response
   }
  
@@ -183,7 +185,7 @@ class ApiClient {
       ...axiosParams,
       data,
     })
-    checkResponse(response)
+    // checkResponse(response)
     return response
   }
 
@@ -206,7 +208,7 @@ class ApiClient {
       data,
       params,
     })
-    checkResponse(response)
+    // checkResponse(response)
     return response
   }
 
@@ -219,7 +221,7 @@ class ApiClient {
    */
   async getDashboard(options: AxiosRequestConfig = {}): Promise<AxiosResponse<any>> {
     const response = await this.client.get('/api/dashboard', options)
-    checkResponse(response)
+    // checkResponse(response)
     return response
   }
 
@@ -236,7 +238,7 @@ class ApiClient {
       url: `/api/pages/${pageName}`,
       ...axiosParams,
     })
-    checkResponse(response)
+    // checkResponse(response)
     return response
   }
 }

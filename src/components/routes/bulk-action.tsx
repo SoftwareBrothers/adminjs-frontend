@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { Loader } from '@adminjs/design-system'
-import { useMatch, useLocation } from 'react-router-dom'
+import { useMatch, useLocation, useParams } from 'react-router-dom'
 import { ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
 import { BulkActionParams } from '@adminjs/common/utils'
-import ApiClient from '../../utils/api-client'
+//import ApiClient from '../../utils/api-client'
 import getBulkActionsFromRecords from '../app/records-table/utils/get-bulk-actions-from-records'
 
 
@@ -18,23 +18,26 @@ import {
 } from '../app'
 import { useTranslation, useNotice, useResource } from '../../hooks'
 
+import { ApiContext } from '../../api-context'
+
 type PropsFromState = {
   resources: Array<ResourceJSON>;
 }
 
 type MatchParams = Pick<BulkActionParams, 'actionName' | 'resourceId'>
 
-const api = new ApiClient()
+//const api = new ApiClient()
 
 const BulkAction: React.FC = () => {
-  const match = useMatch<MatchParams>()
+  const api = useContext(ApiContext)
+  //const match = useMatch<MatchParams>()
   const [records, setRecords] = useState<Array<RecordJSON>>([])
   const [loading, setLoading] = useState(false)
   const { translateMessage } = useTranslation()
   const addNotice = useNotice()
   const location = useLocation()
-
-  const { resourceId, actionName } = match.params
+  const params = useParams()
+  const { resourceId, actionName } = params
   const resource = useResource(resourceId)
 
   const fetchRecords = (): Promise<void> => {
@@ -59,7 +62,7 @@ const BulkAction: React.FC = () => {
 
   useEffect(() => {
     fetchRecords()
-  }, [match.params.resourceId, match.params.actionName])
+  }, [params.resourceId, params.actionName])
 
   if (!resource) {
     return (<NoResourceError resourceId={resourceId} />)
@@ -85,6 +88,7 @@ const BulkAction: React.FC = () => {
   }
 
   if (action.showInDrawer) {
+    console.log('showInDrawer - action', action)
     return (
       <DrawerPortal width={action.containerWidth}>
         <BaseActionComponent

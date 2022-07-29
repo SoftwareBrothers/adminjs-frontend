@@ -1,30 +1,21 @@
-import React, { useState, useEffect, useCallback } from 'react'
-
-import { useMatch, useParams } from 'react-router-dom'
+import React, { useState, useEffect, useCallback, useContext } from 'react'
+import { useParams } from 'react-router-dom'
 import { Loader } from '@adminjs/design-system'
-
 import BaseActionComponent from '../app/base-action-component'
-import ApiClient from '../../utils/api-client'
-//import { ResourceActionParams } from '@adminjs/common/utils'
 import { ActionJSON, RecordJSON, ActionResponse, RecordActionResponse } from '@adminjs/common/interfaces'
-
 import { NoResourceError, NoActionError, NoRecordError } from '../app/error-message'
 import Wrapper from './utils/wrapper'
 import { ActionHeader } from '../app'
 import { useNotice, useResource, useTranslation } from '../../hooks'
 import DrawerPortal from '../app/drawer-portal'
-
-
+import { ApiContext } from '../../api-context'
 import mergeRecordResponse from '../../hooks/use-record/merge-record-response'
 
-const api = new ApiClient()
-
-const RecordAction: React.FC = () => {
+const RecordAction: React.FC = () => { 
+  const api = useContext(ApiContext)
   const params = useParams()
   const [record, setRecord] = useState<RecordJSON>()
   const [loading, setLoading] = useState(true)
-  //const match = useMatch<RecordActionParams>()
-
   const addNotice = useNotice()
   const { translateMessage } = useTranslation()
   const { actionName, recordId, resourceId } = params

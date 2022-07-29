@@ -1,11 +1,9 @@
 import { Link, MessageBox } from '@adminjs/design-system'
 import React from 'react'
 import { Trans } from 'react-i18next'
-
 import { useTranslation } from '../../hooks'
 import { actions } from '../actions'
 import { ActionProps } from '../actions/action.props'
-//import { DOCS } from './../../constants'
 import { DOCS } from '@adminjs/common/constants'
 import ErrorBoundary from './error-boundary'
 

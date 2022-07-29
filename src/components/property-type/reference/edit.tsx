@@ -1,10 +1,9 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState, useEffect, useContext } from 'react'
 import { FormGroup, FormMessage, SelectAsync } from '@adminjs/design-system'
-
-import ApiClient from '../../../utils/api-client'
 import { EditPropertyProps, SelectRecord } from '../base-property-props'
 import { RecordJSON } from '@adminjs/common/interfaces'
 import { PropertyLabel } from '../utils/property-label'
+import { ApiContext } from '../../../api-context'
 
 type CombinedProps = EditPropertyProps
 type SelectRecordEnhanced = SelectRecord & {
@@ -14,7 +13,8 @@ type SelectRecordEnhanced = SelectRecord & {
 const Edit: FC<CombinedProps> = (props) => {
   const { onChange, property, record } = props
   const { reference: resourceId } = property
-
+  const api = useContext(ApiContext)
+  
   if (!resourceId) {
     throw new Error(`Cannot reference resource in property '${property.path}'`)
   }
@@ -28,8 +28,7 @@ const Edit: FC<CombinedProps> = (props) => {
   }
 
   const loadOptions = async (inputValue: string): Promise<SelectRecordEnhanced[]> => {
-    const api = new ApiClient()
-
+    
     const optionRecords = await api.searchRecords({
       resourceId,
       query: inputValue,
@@ -57,7 +56,6 @@ const Edit: FC<CombinedProps> = (props) => {
   useEffect(() => {
     if (!selectedValue && selectedId) {
       setLoadingRecord(c => c + 1)
-      const api = new ApiClient()
       api.recordAction({
         actionName: 'show',
         resourceId,

@@ -1,8 +1,8 @@
 import { AxiosResponse } from 'axios'
-import { Dispatch, SetStateAction, useCallback, useState } from 'react'
+import { Dispatch, SetStateAction, useCallback, useState, useContext } from 'react'
 import { RecordJSON, RecordActionResponse } from '@adminjs/common/interfaces'
-import ApiClient, { RecordActionAPIParams } from '../../utils/api-client'
 import { flat } from '@adminjs/common/utils'
+import { RecordActionAPIParams } from '../../utils/api-client'
 import useNotice from '../use-notice'
 import { filterRecordParams, isPropertyPermitted } from './filter-record'
 import isEntireRecordGiven from './is-entire-record-given'
@@ -10,8 +10,7 @@ import mergeRecordResponse from './merge-record-response'
 import { paramsToFormData } from './params-to-form-data'
 import updateRecord from './update-record'
 import { UseRecordOptions, UseRecordResult, UseRecordSubmitFunction } from './use-record.type'
-
-const api = new ApiClient()
+import { ApiContext } from '../../api-context'
 
 /**
  * @load ./use-record.doc.md
@@ -29,6 +28,7 @@ export const useRecord = (
   resourceId: string,
   options?: UseRecordOptions,
 ): UseRecordResult => {
+  const api = useContext(ApiContext)
   // setting up state
   const [loading, setLoading] = useState(false)
   const [isSynced, setIsSynced] = useState(true)

@@ -1,17 +1,14 @@
 import { Button, DrawerContent, DrawerFooter, Icon, MessageBox, Table, TableBody, TableCell, TableRow, Text } from '@adminjs/design-system'
-import React, { useState } from 'react'
-
+import React, { useState, useContext } from 'react'
 import { RouteComponentProps } from 'react-router-dom'
 import withNotice, { AddNoticeProps } from '../../hoc/with-notice'
-import ApiClient from '../../utils/api-client'
+import withRouter from '../../hoc/with-router'
 import PropertyType from '../property-type'
 import { ActionProps } from './action.props'
 import { appendForceRefresh } from './utils/append-force-refresh'
-
 import { useTranslation } from '../../hooks'
 import ActionHeader from '../app/action-header/action-header'
-
-import withRouter from '../../hoc/with-router'
+import { ApiContext } from '../../api-context'
 
 /**
  * @name ShowAction
@@ -33,9 +30,8 @@ const BulkDelete: React.FC<ActionProps & AddNoticeProps & RouteComponentProps> =
       </Text>
     )
   }
-
   const handleClick = (): void => {
-    const api = new ApiClient()
+    const api = useContext(ApiContext)
     setLoading(true)
     const recordIds = records.map(r => r.id)
     api.bulkAction({

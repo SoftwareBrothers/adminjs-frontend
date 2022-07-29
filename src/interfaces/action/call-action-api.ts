@@ -11,6 +11,7 @@ export function callActionApi<K extends ActionResponse>(
   params: DifferentActionParams,
   search?: Location['search'],
 ): Promise<AxiosResponse<K>> {
+  console.log('callActionApi', api)
   let promise: Promise<AxiosResponse<K>>
   const { recordId, recordIds, resourceId } = params
 

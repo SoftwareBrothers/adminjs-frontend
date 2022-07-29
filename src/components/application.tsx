@@ -1,6 +1,6 @@
 /* eslint-disable react/no-children-prop */
 import { Box, Overlay, Reset } from '@adminjs/design-system'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
 import { ViewHelpers } from '@adminjs/common/utils'
@@ -11,6 +11,8 @@ import TopBar from './app/top-bar'
 
 import useHistoryListen from '../hooks/use-history-listen'
 import { BulkAction, Dashboard, Page, RecordAction, Resource, ResourceAction } from './routes'
+
+import { ApiContext } from '../api-context'
 
 const GlobalStyle = createGlobalStyle`
   html, body, #app {
@@ -24,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 
 const h = new ViewHelpers()
 
-const App: React.FC = () => {
+const App: React.FC = ({api}) => {
   const [sidebarVisible, toggleSidebar] = useState(false)
   const location = useLocation()
   useHistoryListen()
@@ -46,30 +48,32 @@ const App: React.FC = () => {
     
   return (
     <>
-      <Reset />
-      <GlobalStyle />
-      <Box height="100%" flex>
-        {sidebarVisible ? (
-          <Overlay
-            onClick={(): void => toggleSidebar(!sidebarVisible)}
-          />
-        ) : null}
-        <Sidebar isVisible={sidebarVisible} />
-        <Box flex flexGrow={1} flexDirection="column" overflowY="auto" bg="bg">
-          <TopBar toggleSidebar={(): void => toggleSidebar(!sidebarVisible)} />
-          <Box position="absolute" top={0} zIndex={2000}>
-            <Notice />
+      <ApiContext.Provider value={api}>
+        <Reset />
+        <GlobalStyle />
+        <Box height="100%" flex>
+          {sidebarVisible ? (
+            <Overlay
+              onClick={(): void => toggleSidebar(!sidebarVisible)}
+            />
+          ) : null}
+          <Sidebar isVisible={sidebarVisible} />
+          <Box flex flexGrow={1} flexDirection="column" overflowY="auto" bg="bg">
+            <TopBar toggleSidebar={(): void => toggleSidebar(!sidebarVisible)} />
+            <Box position="absolute" top={0} zIndex={2000}>
+              <Notice />
+            </Box>
+            <Routes>
+              <Route path={h.dashboardUrl()} element={<Dashboard/>} />
+              <Route path={resourceUrl} element={<Resource/>} />
+              <Route path={pageUrl} exact element={<Page/>} />
+              <Route path={recordActionUrl} element={<RecordAction/>} />
+              <Route path={resourceActionUrl} element={<ResourceAction/>} />
+              <Route path={bulkActionUrl} element={<BulkAction/>} />
+            </Routes>
           </Box>
-          <Routes>
-            <Route path={h.dashboardUrl()} element={<Dashboard/>} />
-            <Route path={resourceUrl} element={<Resource/>} />
-            <Route path={pageUrl} exact element={<Page/>} />
-            <Route path={recordActionUrl} element={<RecordAction/>} />
-            <Route path={resourceActionUrl} element={<ResourceAction/>} />
-            <Route path={bulkActionUrl} element={<BulkAction/>} />
-          </Routes>
         </Box>
-      </Box>
+      </ApiContext.Provider>
     </>
 
   )
