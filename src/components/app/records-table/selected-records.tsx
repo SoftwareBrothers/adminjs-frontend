@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { TableCaption, Title, ButtonGroup, Box } from '@adminjs/design-system'
 import { useNavigate } from 'react-router-dom'
 import { buildActionClickHandler } from '../../../interfaces'
@@ -6,6 +6,7 @@ import { ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces
 import getBulkActionsFromRecords from './utils/get-bulk-actions-from-records'
 import { useActionResponseHandler, useTranslation } from '../../../hooks'
 import { actionsToButtonGroup } from '../action-header/actions-to-button-group'
+import { ApiContext } from '../../../api-context'
 
 type SelectedRecordsProps = {
   resource: ResourceJSON;
@@ -14,6 +15,7 @@ type SelectedRecordsProps = {
 
 export const SelectedRecords: React.FC<SelectedRecordsProps> = (props) => {
   const { resource, selectedRecords } = props
+  const api = useContext(ApiContext)
   const { translateLabel } = useTranslation()
   const navigate = useNavigate()
   const actionResponseHandler = useActionResponseHandler()
@@ -30,6 +32,7 @@ export const SelectedRecords: React.FC<SelectedRecordsProps> = (props) => {
       params,
       actionResponseHandler,
       push: navigate,
+      api
     })(event)
   )
 

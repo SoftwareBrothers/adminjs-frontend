@@ -11,14 +11,15 @@ export type BuildActionCallApiTriggerOptions = {
   params: DifferentActionParams;
   actionResponseHandler: ReturnType<typeof useActionResponseHandler>;
   search?: Location['search'];
+  api: any;
 }
 
 export const buildActionCallApiTrigger = <K>(
   options: BuildActionCallApiTriggerOptions,
 ): CallApiFunction<K> => {
-  const { action, params, actionResponseHandler, search } = options
+  const { action, params, actionResponseHandler, api, search } = options
   const callApi: CallApiFunction<K> = () => {
-    const promise = callActionApi(action, params, search)
+    const promise = callActionApi(action, params, search, api)
     promise.then(actionResponseHandler).catch((error) => {
       throw error
     })

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   Placeholder, TableRow, TableCell, CheckBox, ButtonGroup,
@@ -12,6 +12,7 @@ import { display } from './utils/display'
 import mergeRecordResponse from '../../../hooks/use-record/merge-record-response'
 import { useActionResponseHandler } from '../../../hooks'
 import { actionsToButtonGroup } from '../action-header/actions-to-button-group'
+import { ApiContext } from '../../../api-context'
 
 export type RecordInListProps = {
   resource: ResourceJSON;
@@ -29,6 +30,7 @@ export const RecordInList: React.FC<RecordInListProps> = (props) => {
   } = props
   const [record, setRecord] = useState<RecordJSON>(recordFromProps)
   const navigate = useNavigate()
+  const api = useContext(ApiContext)
 
   const handleActionCallback = useCallback((actionResponse: ActionResponse) => {
     if (actionResponse.record && !actionResponse.redirectUrl) {
@@ -62,6 +64,7 @@ export const RecordInList: React.FC<RecordInListProps> = (props) => {
         params: { resourceId: resource.id, recordId: record.id },
         actionResponseHandler,
         push: navigate,
+        api
       })(event)
     }
   }
@@ -74,6 +77,7 @@ export const RecordInList: React.FC<RecordInListProps> = (props) => {
       params: actionParams,
       actionResponseHandler,
       push: navigate,
+      api
     })(event)
   )
 

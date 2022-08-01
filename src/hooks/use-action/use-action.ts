@@ -1,3 +1,4 @@
+import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { ActionResponse } from '@adminjs/common/interfaces'
 
@@ -7,6 +8,7 @@ import { ActionJSON } from '@adminjs/common/interfaces'
 import { DifferentActionParams, ActionCallCallback, UseActionResult } from './use-action.types'
 import { actionHref } from '../../interfaces/action/action-href'
 import { useActionResponseHandler } from './use-action-response-handler'
+import { ApiContext } from '../../api-context'
 
 /**
  * @load ./use-action.doc.md
@@ -26,7 +28,7 @@ export function useAction<K extends ActionResponse>(
   onActionCall?: ActionCallCallback,
 ): UseActionResult<K> {
   const navigate = useNavigate()
-
+  const api = useContext(ApiContext)
   const actionResponseHandler = useActionResponseHandler(onActionCall)
 
   const href = actionHref(action, params)
@@ -35,6 +37,7 @@ export function useAction<K extends ActionResponse>(
     action,
     params,
     actionResponseHandler,
+    api
   })
 
   const handleClick = buildActionClickHandler({
@@ -42,6 +45,7 @@ export function useAction<K extends ActionResponse>(
     params,
     actionResponseHandler,
     push: navigate,
+    api
   })
 
   return {

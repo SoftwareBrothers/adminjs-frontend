@@ -1,20 +1,16 @@
 import { AxiosResponse } from 'axios'
 import { ActionResponse, ActionJSON } from '@adminjs/common/interfaces'
 import { DifferentActionParams } from '../../hooks'
-import { ApiClient } from '../../utils'
-
-
-const api = new ApiClient()
 
 export function callActionApi<K extends ActionResponse>(
   action: ActionJSON,
   params: DifferentActionParams,
   search?: Location['search'],
+  api: any,
 ): Promise<AxiosResponse<K>> {
-  console.log('callActionApi', api)
+  
   let promise: Promise<AxiosResponse<K>>
   const { recordId, recordIds, resourceId } = params
-
   switch (action.actionType) {
   case 'record':
     if (!recordId) {

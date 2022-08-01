@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { Loader } from '@adminjs/design-system'
-import { useMatch, useLocation, useParams } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
 import { BulkActionParams } from '@adminjs/common/utils'
 //import ApiClient from '../../utils/api-client'
@@ -30,17 +30,18 @@ type MatchParams = Pick<BulkActionParams, 'actionName' | 'resourceId'>
 
 const BulkAction: React.FC = () => {
   const api = useContext(ApiContext)
-  //const match = useMatch<MatchParams>()
+  const params = useParams()
   const [records, setRecords] = useState<Array<RecordJSON>>([])
   const [loading, setLoading] = useState(false)
   const { translateMessage } = useTranslation()
   const addNotice = useNotice()
   const location = useLocation()
-  const params = useParams()
+
   const { resourceId, actionName } = params
   const resource = useResource(resourceId)
 
   const fetchRecords = (): Promise<void> => {
+    
     const recordIdsString = new URLSearchParams(location.search).get('recordIds')
     const recordIds = recordIdsString ? recordIdsString.split(',') : []
     setLoading(true)
@@ -88,7 +89,6 @@ const BulkAction: React.FC = () => {
   }
 
   if (action.showInDrawer) {
-    console.log('showInDrawer - action', action)
     return (
       <DrawerPortal width={action.containerWidth}>
         <BaseActionComponent
