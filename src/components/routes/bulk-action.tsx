@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Loader } from '@adminjs/design-system'
-import { useMatch, useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import { ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
 import { BulkActionParams } from '@adminjs/common/utils'
 import ApiClient from '../../utils/api-client'
@@ -27,14 +27,14 @@ type MatchParams = Pick<BulkActionParams, 'actionName' | 'resourceId'>
 const api = new ApiClient()
 
 const BulkAction: React.FC = () => {
-  const match = useMatch<MatchParams>()
+  const params = useParams()
   const [records, setRecords] = useState<Array<RecordJSON>>([])
   const [loading, setLoading] = useState(false)
   const { translateMessage } = useTranslation()
   const addNotice = useNotice()
   const location = useLocation()
 
-  const { resourceId, actionName } = match.params
+  const { resourceId, actionName } = params
   const resource = useResource(resourceId)
 
   const fetchRecords = (): Promise<void> => {
@@ -59,7 +59,7 @@ const BulkAction: React.FC = () => {
 
   useEffect(() => {
     fetchRecords()
-  }, [match.params.resourceId, match.params.actionName])
+  }, [params.resourceId, params.actionName])
 
   if (!resource) {
     return (<NoResourceError resourceId={resourceId} />)

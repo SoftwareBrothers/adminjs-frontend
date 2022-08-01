@@ -1,7 +1,7 @@
 import { Button, DrawerContent, DrawerFooter, Icon, MessageBox, Table, TableBody, TableCell, TableRow, Text } from '@adminjs/design-system'
 import React, { useState } from 'react'
 
-import { RouteComponentProps } from 'react-router-dom'
+import { RouteComponentProps, useNavigate } from 'react-router-dom'
 import withNotice, { AddNoticeProps } from '../../hoc/with-notice'
 import ApiClient from '../../utils/api-client'
 import PropertyType from '../property-type'
@@ -21,8 +21,7 @@ import withRouter from '../../hoc/with-router'
  * @private
  */
 const BulkDelete: React.FC<ActionProps & AddNoticeProps & RouteComponentProps> = (props) => {
-  const { resource, records, action, addNotice, navigate } = props
-
+  const { resource, records, action, addNotice, router } = props
   const [loading, setLoading] = useState(false)
   const { translateMessage, translateButton } = useTranslation()
 
@@ -33,7 +32,6 @@ const BulkDelete: React.FC<ActionProps & AddNoticeProps & RouteComponentProps> =
       </Text>
     )
   }
-
   const handleClick = (): void => {
     const api = new ApiClient()
     setLoading(true)
@@ -52,7 +50,7 @@ const BulkDelete: React.FC<ActionProps & AddNoticeProps & RouteComponentProps> =
         const search = new URLSearchParams(window.location.search)
         // bulk function have recordIds in the URL so it has to be stripped before redirect
         search.delete('recordIds')
-        navigate(appendForceRefresh(response.data.redirectUrl, search.toString()))
+        router.navigate(appendForceRefresh(response.data.redirectUrl, search.toString()))
       }
     })).catch((error) => {
       setLoading(false)
@@ -63,7 +61,6 @@ const BulkDelete: React.FC<ActionProps & AddNoticeProps & RouteComponentProps> =
       throw error
     })
   }
-
   return (
     <React.Fragment>
       <DrawerContent>
