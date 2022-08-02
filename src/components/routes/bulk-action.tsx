@@ -1,22 +1,16 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { Loader } from '@adminjs/design-system'
-import { useLocation, useParams } from 'react-router-dom'
 import { ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
 import { BulkActionParams } from '@adminjs/common/utils'
-//import ApiClient from '../../utils/api-client'
+import { Loader } from '@adminjs/design-system'
+import React, { useContext, useEffect, useState } from 'react'
+import { useLocation, useParams } from 'react-router-dom'
 import getBulkActionsFromRecords from '../app/records-table/utils/get-bulk-actions-from-records'
 
 
-import Wrapper from './utils/wrapper'
+import { useNotice, useResource, useTranslation } from '../../hooks'
 import {
-  ActionHeader,
-  DrawerPortal,
-  BaseActionComponent,
-  ErrorMessageBox,
-  NoResourceError,
-  NoActionError,
+  ActionHeader, BaseActionComponent, DrawerPortal, ErrorMessageBox, NoActionError, NoResourceError
 } from '../app'
-import { useTranslation, useNotice, useResource } from '../../hooks'
+import Wrapper from './utils/wrapper'
 
 import { ApiContext } from '../../api-context'
 
@@ -25,8 +19,6 @@ type PropsFromState = {
 }
 
 type MatchParams = Pick<BulkActionParams, 'actionName' | 'resourceId'>
-
-//const api = new ApiClient()
 
 const BulkAction: React.FC = () => {
   const api = useContext(ApiContext)

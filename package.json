@@ -2,7 +2,7 @@
   "name": "@adminjs/frontend",
   "version": "7.0.0",
   "description": "Frontend for AdminJS Core",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "lint": "eslint './src/**/*' './*' --ext .ts,.tsx,.js,.jsx",
     "build": "babel src --out-dir lib --copy-files --extensions '.ts,.js,.jsx,.tsx'",

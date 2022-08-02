@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React from 'react'
-import { Box, Badge, H3, H2, ButtonGroup, cssClass } from '@adminjs/design-system'
+import { Badge, Box, ButtonGroup, cssClass, H2, H3 } from '@adminjs/design-system'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Breadcrumbs from '../breadcrumbs'
 import { ActionHeaderProps } from './action-header-props'
 import { actionsToButtonGroup } from './actions-to-button-group'
 import { StyledBackButton } from './styled-back-button'
 
+import { ActionJSON } from '@adminjs/common/interfaces'
+import { ApiContext } from '../../../api-context'
 import { useActionResponseHandler, useTranslation } from '../../../hooks'
 import { buildActionClickHandler } from '../../../interfaces/action'
-import { ActionJSON } from '@adminjs/common/interfaces'
-
 
 /**
  * Header of an action. It renders Action name with buttons for all the actions.
@@ -31,6 +31,7 @@ export const ActionHeader: React.FC<ActionHeaderProps> = (props) => {
 
   const { translateButton } = useTranslation()
   const navigate = useNavigate()
+  const api = useContext(ApiContext)
   const actionResponseHandler = useActionResponseHandler(actionPerformed)
 
   if (action.hideActionHeader) {
@@ -40,14 +41,16 @@ export const ActionHeader: React.FC<ActionHeaderProps> = (props) => {
   const resourceId = resource.id
   const params = { resourceId, recordId: record?.id }
 
-  const handleActionClick = (event, sourceAction: ActionJSON): any | Promise<any> => (
+  const handleActionClick = (event, sourceAction: ActionJSON): any | Promise<any> =>  (
     buildActionClickHandler({
       action: sourceAction,
       params,
       actionResponseHandler,
       push: navigate,
+      api
     })(event)
   )
+
 
   const actionButtons = actionsToButtonGroup({
     actions: record

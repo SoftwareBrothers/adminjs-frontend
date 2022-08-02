@@ -1,27 +1,21 @@
-import React, {useState, useEffect, createContext} from 'react'
+import { theme } from '@adminjs/design-system'
 import i18n from 'i18next'
+import React, { useEffect, useState } from 'react'
 import { initReactI18next } from 'react-i18next'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
-import { theme } from '@adminjs/design-system'
 import { ThemeProvider } from 'styled-components'
-import createStore from './store/store'
 import App from './components/application'
-import ApiClient from './utils/api-client'
-import apiConfig from './FrontConfig.json'
+import createStore from './store/store'
 let store =createStore()
 
 export const AdminJS = (props) => {
-  const { url }  = props 
-  
+  const { api }  = props 
   const [config, setConfig] = useState({})
-  const [apiClient, setApiClient] = useState()
   
   useEffect( ()=> {
-    const Api = new ApiClient()
-    Api.getMetadata(apiConfig.adminApiUrl)
+    api.getMetadata()
       .then( response => {
-        setApiClient(Api)
         setConfig(response.data)
         store = createStore(response.data)
         initializeLocale(response.data.locale)
@@ -46,7 +40,7 @@ export const AdminJS = (props) => {
       <Provider store={store}>
         <ThemeProvider theme={theme}>
           <BrowserRouter>
-            <App api={apiClient} />
+            <App api={api} />
           </BrowserRouter>
         </ThemeProvider>
       </Provider>

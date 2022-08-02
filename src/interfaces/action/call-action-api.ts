@@ -1,14 +1,14 @@
+import { ActionJSON, ActionResponse } from '@adminjs/common/interfaces'
 import { AxiosResponse } from 'axios'
-import { ActionResponse, ActionJSON } from '@adminjs/common/interfaces'
 import { DifferentActionParams } from '../../hooks'
 
 export function callActionApi<K extends ActionResponse>(
   action: ActionJSON,
   params: DifferentActionParams,
-  search?: Location['search'],
   api: any,
+  search?: Location['search'],
+
 ): Promise<AxiosResponse<K>> {
-  
   let promise: Promise<AxiosResponse<K>>
   const { recordId, recordIds, resourceId } = params
   switch (action.actionType) {
@@ -17,7 +17,7 @@ export function callActionApi<K extends ActionResponse>(
       throw new Error('You have to specify "recordId" for record action')
     }
     promise = api.recordAction({
-      resourceId, actionName: action.name, recordId, search,
+      resourceId, actionName: action.name, recordId, search
     }) as any
     break
   case 'resource':

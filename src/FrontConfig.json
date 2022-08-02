@@ -1,8 +1,0 @@
-{
-  "adminApiUrl": "http://localhost:3001",
-  "paths": {
-      "loginPath": "/admin/login",
-      "logoutPath": "/admin/logout",
-      "rootPath": "/admin"
-  }
-}

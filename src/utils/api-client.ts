@@ -1,12 +1,10 @@
-import axios, { AxiosResponse, AxiosInstance, AxiosRequestConfig } from 'axios'
 import {
-  ResourceActionParams,
-  BulkActionParams,
-  RecordActionParams,
-  ActionParams,
+  ActionParams, BulkActionParams,
+  RecordActionParams, ResourceActionParams
 } from '@adminjs/common/utils'
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 /* eslint-disable no-alert */
-import { RecordJSON, RecordActionResponse, ActionResponse, BulkActionResponse } from '@adminjs/common/interfaces'
+import { ActionResponse, BulkActionResponse, RecordActionResponse, RecordJSON } from '@adminjs/common/interfaces'
 
 //import config from '../FrontConfig.json'
 
@@ -110,22 +108,21 @@ class ApiClient {
     logoutPath: string,
   }
   private client: AxiosInstance
-
+  
+  constructor(config) {
+    this.paths = config.paths
+    this.baseURL = this.getBaseUrl(config.url)
+    this.client = axios.create({
+      baseURL: this.baseURL,
+    })
+  }
+  
   getBaseUrl(url: string): string {
     return [url, this.paths.rootPath].join('')
   }
     
-  async getMetadata(url): Promise<AxiosResponse<ActionResponse>> {
-
-    this.client = axios.create({
-      baseURL: this.baseURL,
-    })
-    const response = await axios( {url: `${url}/admin/api/metadata`} )
-    this.paths = response.data.paths
-    this.baseURL = this.getBaseUrl(url)
-    this.client = axios.create({
-      baseURL: this.baseURL
-    })
+  async getMetadata(): Promise<AxiosResponse<ActionResponse>> {
+    const response = await this.client( {url: `${this.baseURL}/api/metadata`} )
     return response
   }
   
