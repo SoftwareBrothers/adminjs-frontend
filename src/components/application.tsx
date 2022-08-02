@@ -34,7 +34,7 @@ const App: React.FC = ({api}) => {
   useEffect(() => {
     if (sidebarVisible) { toggleSidebar(false) }
   }, [location])
-
+  
   const resourceId = ':resourceId'
   const actionName = ':actionName'
   const recordId = ':recordId'
@@ -65,13 +65,15 @@ const App: React.FC = ({api}) => {
             </Box>
             <Routes>
               <Route path={h.dashboardUrl()} element={<Dashboard/>} />
-              <Route path={resourceUrl} element={<Resource/>} />
-              <Route path={pageUrl} exact element={<Page/>} />
+              <Route path={resourceUrl} element={<Resource/>} /> 
+              <Route path={pageUrl} element={<Page/>} />
+              <Route path={bulkActionUrl} element={<Resource/>} />
             </Routes>
             <Routes>
-              <Route path={recordActionUrl} element={<RecordAction/>} />
+              <Route path={recordActionUrl} element={<RecordAction/>} /> 
               <Route path={resourceActionUrl} element={<ResourceAction/>} />
               <Route path={bulkActionUrl} element={<BulkAction/>} />
+              
             </Routes>
           </Box>
         </Box>
@@ -82,6 +84,3 @@ const App: React.FC = ({api}) => {
 }
 
 export default App
-
-
-
