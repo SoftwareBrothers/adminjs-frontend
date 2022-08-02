@@ -37,7 +37,7 @@ const BulkAction: React.FC = () => {
     const recordIdsString = new URLSearchParams(location.search).get('recordIds')
     const recordIds = recordIdsString ? recordIdsString.split(',') : []
     setLoading(true)
-
+    
     return api.bulkAction({
       resourceId, recordIds, actionName,
     }).then((response) => {
@@ -57,6 +57,7 @@ const BulkAction: React.FC = () => {
     fetchRecords()
   }, [params.resourceId, params.actionName])
 
+  
   if (!resource) {
     return (<NoResourceError resourceId={resourceId} />)
   }
@@ -68,9 +69,8 @@ const BulkAction: React.FC = () => {
       </ErrorMessageBox>
     )
   }
-
   const action = getBulkActionsFromRecords(records || []).find(r => r.name === actionName)
-
+  
   if (loading) {
     const actionFromResource = resource.actions.find(r => r.name === actionName)
     return actionFromResource?.showInDrawer ? (<DrawerPortal><Loader /></DrawerPortal>) : <Loader />
@@ -78,8 +78,8 @@ const BulkAction: React.FC = () => {
 
   if (!action) {
     return (<NoActionError resourceId={resourceId} actionName={actionName} />)
-  }
-
+  } 
+  
   if (action.showInDrawer) {
     return (
       <DrawerPortal width={action.containerWidth}>
@@ -90,7 +90,9 @@ const BulkAction: React.FC = () => {
         />
       </DrawerPortal>
     )
-  }
+  } 
+  
+
 
   return (
     <Wrapper width={action.containerWidth}>

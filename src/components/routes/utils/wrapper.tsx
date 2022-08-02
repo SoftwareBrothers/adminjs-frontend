@@ -37,7 +37,6 @@ type WrapperProps = BoxProps & {
 const Wrapper: React.FC<WrapperProps> = (props) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { children, variant, color, showFilter = false, ...rest } = props
-
   const Component = showFilter ? StyledWrapperWithFilter : StyledWrapper
   return (
     <Component {...rest} variant="grey" mx="auto">

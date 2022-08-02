@@ -45,7 +45,7 @@ const App: React.FC = ({api}) => {
   const bulkActionUrl = h.bulkActionUrl({ resourceId, actionName })
   const resourceUrl = h.resourceUrl({ resourceId })
   const pageUrl = h.pageUrl(pageName)
-    
+
   return (
     <>
       <ApiContext.Provider value={api}>
@@ -67,6 +67,8 @@ const App: React.FC = ({api}) => {
               <Route path={h.dashboardUrl()} element={<Dashboard/>} />
               <Route path={resourceUrl} element={<Resource/>} />
               <Route path={pageUrl} exact element={<Page/>} />
+            </Routes>
+            <Routes>
               <Route path={recordActionUrl} element={<RecordAction/>} />
               <Route path={resourceActionUrl} element={<ResourceAction/>} />
               <Route path={bulkActionUrl} element={<BulkAction/>} />

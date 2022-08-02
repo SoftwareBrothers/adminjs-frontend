@@ -66,7 +66,7 @@ export const BaseActionComponent: React.FC<ActionProps> = (props) => {
   const { translateMessage } = useTranslation()
 
   let Action = actions[action.name]
-
+  
   if (action.component) {
     Action = AdminJS.UserComponents[action.component]
   }
