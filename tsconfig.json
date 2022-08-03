@@ -1,0 +1,35 @@
+{
+  'compilerOptions': {
+    "outDir": './built',
+    "target": 'ESNext',
+    "esModuleInterop": true,
+    "jsx": 'react',
+    "declaration": true,
+    "declarationDir": './types',
+    "emitDeclarationOnly": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "noImplicitThis": true,
+    "moduleResolution": 'node',
+    "baseUrl": '.',
+    "types": [
+      "react",
+      "mocha",
+      "node"
+    ],
+    "paths": {
+      "react": ['node_modules/@types/react'],
+      "styled-components": ['node_modules/@types/styled-components']
+    },
+    "skipLibCheck": true
+  },
+  'include': [
+    "./src/**/*",
+    "./spec/**/*"
+  ],
+  'exclude': [
+    "./node-modules",
+  ]
+}
