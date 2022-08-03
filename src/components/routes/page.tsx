@@ -40,7 +40,7 @@ class Page extends React.Component<Props, State> {
     const { pageName } = params
     const { isClient } = this.state
 
-    const currentPage = pages.find(page => page.name === pageName)
+    const currentPage = pages.find((page) => page.name === pageName)
 
     if (!currentPage) {
       return (

@@ -1,7 +1,6 @@
 import React from 'react'
-import mapValue from './map-value'
 import { ResourceJSON, RecordJSON, PropertyJSON } from '@adminjs/common/interfaces'
-
+import mapValue from './map-value'
 
 interface Props {
   property: PropertyJSON;

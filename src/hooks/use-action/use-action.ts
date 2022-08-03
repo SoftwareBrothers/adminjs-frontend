@@ -1,9 +1,8 @@
 import { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { ActionResponse } from '@adminjs/common/interfaces'
+import { ActionResponse, ActionJSON } from '@adminjs/common/interfaces'
 
 import { buildActionCallApiTrigger, buildActionClickHandler } from '../../interfaces'
-import { ActionJSON } from '@adminjs/common/interfaces'
 
 import { DifferentActionParams, ActionCallCallback, UseActionResult } from './use-action.types'
 import { actionHref } from '../../interfaces/action/action-href'
@@ -37,7 +36,7 @@ export function useAction<K extends ActionResponse>(
     action,
     params,
     actionResponseHandler,
-    api
+    api,
   })
 
   const handleClick = buildActionClickHandler({
@@ -45,7 +44,7 @@ export function useAction<K extends ActionResponse>(
     params,
     actionResponseHandler,
     push: navigate,
-    api
+    api,
   })
 
   return {

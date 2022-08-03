@@ -3,9 +3,9 @@ import { render } from '@testing-library/react'
 import factory from 'factory-girl'
 import { expect } from 'chai'
 
+import { PropertyJSON } from '@adminjs/common/interfaces'
 import TestContextProvider from '../../spec/test-context-provider'
 import RecordsTableHeader from './records-table-header'
-import { PropertyJSON } from '@adminjs/common/interfaces'
 
 require('../../spec/property-json.factory')
 

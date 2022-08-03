@@ -1,14 +1,14 @@
 import { Box } from '@adminjs/design-system'
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { useMatch, useParams, RouteComponentProps} from 'react-router-dom'
+import { useMatch, useParams, RouteComponentProps } from 'react-router-dom'
 import { ActionJSON, ResourceJSON } from '@adminjs/common/interfaces'
+import { ViewHelpers, BulkActionParams, RecordActionParams, ResourceActionParams } from '@adminjs/common/utils'
 import { ReduxState } from '../../store/store'
 import { ActionHeader } from '../app'
 import BaseAction from '../app/base-action-component'
 import { NoActionError, NoResourceError } from '../app/error-message'
 import FilterDrawer from '../app/filter-drawer'
-import { ViewHelpers, BulkActionParams, RecordActionParams, ResourceActionParams } from '@adminjs/common/utils'
 
 type PropsFromState = {
   resources: Array<ResourceJSON>;
@@ -21,7 +21,6 @@ type StringifiedBulk<T> = Omit<T, 'recordsId'> & {
 }
 
 const getAction = (resource: ResourceJSON): ActionJSON | undefined => {
-  
   const h = new ViewHelpers()
 
   const resourceId = ':resourceId'
@@ -35,16 +34,15 @@ const getAction = (resource: ResourceJSON): ActionJSON | undefined => {
   const resourceActionMatch = useMatch<ResourceActionParams>(resourceActionUrl)
   const recordActionMatch = useMatch<RecordActionParams>(recordActionUrl)
   const bulkActionMatch = useMatch<Pick<BulkActionParams, 'actionName' | 'resourceId'>>(bulkActionUrl)
-  
+
   const action = resourceActionMatch?.params.actionName
     || recordActionMatch?.params.actionName
     || bulkActionMatch?.params.actionName
 
-  return action ? resource.actions.find(a => a.name === action) : undefined
+  return action ? resource.actions.find((a) => a.name === action) : undefined
 }
 
 const ResourceAction: React.FC<Props> = (props) => {
-
   const params = useParams()
   const { resources } = props
   const { resourceId } = params
@@ -52,7 +50,7 @@ const ResourceAction: React.FC<Props> = (props) => {
   const [filterVisible, setFilterVisible] = useState(false)
   const [tag, setTag] = useState('')
 
-  const resource = resources.find(r => r.id === resourceId)
+  const resource = resources.find((r) => r.id === resourceId)
   if (!resource) {
     return (<NoResourceError resourceId={resourceId} />)
   }
@@ -63,7 +61,7 @@ const ResourceAction: React.FC<Props> = (props) => {
   }
 
   const listActionName = 'list'
-  const listAction = resource.resourceActions.find(r => r.name === listActionName)
+  const listAction = resource.resourceActions.find((r) => r.name === listActionName)
   if (!listAction) {
     return (<NoActionError resourceId={resourceId} actionName={listActionName} />)
   }
@@ -81,7 +79,7 @@ const ResourceAction: React.FC<Props> = (props) => {
         toggleFilter={toggleFilter}
       />
       <BaseAction action={listAction} resource={resource} setTag={setTag} />
-      
+
       {listAction.showFilter ? (
         <FilterDrawer
           key={filterVisible.toString()}
@@ -89,7 +87,7 @@ const ResourceAction: React.FC<Props> = (props) => {
           isVisible={filterVisible}
           toggleFilter={(): void => { setFilterVisible(!filterVisible) }}
         />
-      ) : ''} 
+      ) : ''}
     </Box>
   )
 }
@@ -99,5 +97,3 @@ const mapStateToProps = (state: ReduxState): PropsFromState => ({
 })
 
 export default connect(mapStateToProps)(ResourceAction)
-
-

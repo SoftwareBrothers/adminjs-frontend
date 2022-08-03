@@ -5,16 +5,14 @@ import factory from 'factory-girl'
 import sinon from 'sinon'
 import 'sinon-chai'
 
+import { RecordJSON, PropertyJSON, ResourceJSON } from '@adminjs/common/interfaces'
+import { TranslateFunctions } from '@adminjs/common/utils'
 import Edit from './edit'
 import TestContextProvider from '../../spec/test-context-provider'
 import '../../spec/property-json.factory'
 import '../../spec/record-json.factory'
-import { RecordJSON, PropertyJSON, ResourceJSON } from '@adminjs/common/interfaces'
 
 import ItemComponent from '../default-type/edit'
-
-import { TranslateFunctions } from '@adminjs/common/utils'
-
 
 const AddNewItemText = 'Add new item'
 

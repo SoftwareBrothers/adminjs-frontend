@@ -8,7 +8,6 @@ import Version from './version'
 
 import { ReduxState } from '../../store/store'
 
-
 const NavBar = styled(Box)`
   height: ${({ theme }): string => theme.sizes.navbarHeight};
   border-bottom: ${themeGet('borders', 'default')};

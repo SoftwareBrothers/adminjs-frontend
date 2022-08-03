@@ -5,10 +5,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useLocation, useParams } from 'react-router-dom'
 import getBulkActionsFromRecords from '../app/records-table/utils/get-bulk-actions-from-records'
 
-
 import { useNotice, useResource, useTranslation } from '../../hooks'
 import {
-  ActionHeader, BaseActionComponent, DrawerPortal, ErrorMessageBox, NoActionError, NoResourceError
+  ActionHeader, BaseActionComponent, DrawerPortal, ErrorMessageBox, NoActionError, NoResourceError,
 } from '../app'
 import Wrapper from './utils/wrapper'
 
@@ -33,11 +32,10 @@ const BulkAction: React.FC = () => {
   const resource = useResource(resourceId)
 
   const fetchRecords = (): Promise<void> => {
-    
     const recordIdsString = new URLSearchParams(location.search).get('recordIds')
     const recordIds = recordIdsString ? recordIdsString.split(',') : []
     setLoading(true)
-    
+
     return api.bulkAction({
       resourceId, recordIds, actionName,
     }).then((response) => {
@@ -57,7 +55,6 @@ const BulkAction: React.FC = () => {
     fetchRecords()
   }, [params.resourceId, params.actionName])
 
-  
   if (!resource) {
     return (<NoResourceError resourceId={resourceId} />)
   }
@@ -69,17 +66,17 @@ const BulkAction: React.FC = () => {
       </ErrorMessageBox>
     )
   }
-  const action = getBulkActionsFromRecords(records || []).find(r => r.name === actionName)
-  
+  const action = getBulkActionsFromRecords(records || []).find((r) => r.name === actionName)
+
   if (loading) {
-    const actionFromResource = resource.actions.find(r => r.name === actionName)
+    const actionFromResource = resource.actions.find((r) => r.name === actionName)
     return actionFromResource?.showInDrawer ? (<DrawerPortal><Loader /></DrawerPortal>) : <Loader />
   }
 
   if (!action) {
     return (<NoActionError resourceId={resourceId} actionName={actionName} />)
-  } 
-  
+  }
+
   if (action.showInDrawer) {
     return (
       <DrawerPortal width={action.containerWidth}>
@@ -90,9 +87,7 @@ const BulkAction: React.FC = () => {
         />
       </DrawerPortal>
     )
-  } 
-  
-
+  }
 
   return (
     <Wrapper width={action.containerWidth}>

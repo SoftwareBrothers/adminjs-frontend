@@ -1,6 +1,5 @@
 import { RecordJSON, RecordActionResponse } from '@adminjs/common/interfaces'
 
-
 /**
  * Handlers of all [Actions]{@link Action} of type `record` returns record.
  * Depending on a place and response we have to merge what was returned

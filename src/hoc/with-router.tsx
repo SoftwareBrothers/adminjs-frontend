@@ -6,7 +6,6 @@ type WithRouterProps = {
 }
 
 const withRouter = (Component) => {
-  
   const ComponentWithRouterProp: React.FC<WithRouterProps> = (props) => {
     const location = useLocation()
     const navigate = useNavigate()
@@ -16,7 +15,6 @@ const withRouter = (Component) => {
   }
 
   return ComponentWithRouterProp
-  
 }
 
 export {

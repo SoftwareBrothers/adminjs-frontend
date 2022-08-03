@@ -12,8 +12,8 @@ class Filter extends React.PureComponent<CombinedProps> {
   private api: ApiClient
 
   private options: Array<SelectRecord>
-    
-  static contextType = ApiContext;
+
+  static contextType = ApiContext
 
   constructor(props: CombinedProps) {
     super(props)
@@ -33,7 +33,7 @@ class Filter extends React.PureComponent<CombinedProps> {
       resourceId: property.reference as string,
       query: inputValue,
     })
-    this.options = records.map(r => ({ value: r.id, label: r.title }))
+    this.options = records.map((r) => ({ value: r.id, label: r.title }))
     return this.options
   }
 
@@ -41,7 +41,7 @@ class Filter extends React.PureComponent<CombinedProps> {
     this.api = this.context
     const { property, filter } = this.props
     const value = typeof filter[property.path] === 'undefined' ? '' : filter[property.path]
-    const selected = (this.options || []).find(o => o.value === value)
+    const selected = (this.options || []).find((o) => o.value === value)
     return (
       <FormGroup>
         <Label>{property.label}</Label>

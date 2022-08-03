@@ -12,7 +12,6 @@ import { useTranslation } from '../../hooks/use-translation'
 import LayoutElementRenderer from './utils/layout-element-renderer'
 
 const New: FC<ActionProps> = (props) => {
-
   const { record: initialRecord, resource, action } = props
   const {
     record,
@@ -21,7 +20,7 @@ const New: FC<ActionProps> = (props) => {
     loading,
     setRecord,
   } = useRecord(initialRecord, resource.id)
-  
+
   const { translateButton } = useTranslation()
   const navigate = useNavigate()
 
@@ -54,7 +53,7 @@ const New: FC<ActionProps> = (props) => {
       flexDirection="column"
     >
       <DrawerContent>
-        {action?.showInDrawer ? <ActionHeader {...props} /> : null} 
+        {action?.showInDrawer ? <ActionHeader {...props} /> : null}
         {action.layout ? action.layout.map((layoutElement, i) => (
           <LayoutElementRenderer
             // eslint-disable-next-line react/no-array-index-key
@@ -65,7 +64,7 @@ const New: FC<ActionProps> = (props) => {
             onChange={handleChange}
             record={record as RecordJSON}
           />
-        )) : resource.editProperties.map(property => (
+        )) : resource.editProperties.map((property) => (
           <PropertyType
             key={property.propertyPath}
             where="edit"
@@ -75,7 +74,7 @@ const New: FC<ActionProps> = (props) => {
             record={record as RecordJSON}
           />
         ))}
-      </DrawerContent> 
+      </DrawerContent>
       <DrawerFooter>
         <Button variant="primary" size="lg" type="submit" data-testid="button-save" disabled={loading}>
           {loading ? (<Icon icon="Fade" spin />) : null}
@@ -90,6 +89,3 @@ export {
   New as default,
   New,
 }
-
-
-

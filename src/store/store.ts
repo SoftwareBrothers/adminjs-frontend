@@ -1,17 +1,15 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 import type { useLocation } from 'react-router-dom'
 import { combineReducers, createStore } from 'redux'
+import { CurrentAdmin, Locale, NoticeMessage, PageJSON, ResourceJSON } from '@adminjs/common/interfaces'
+import { DEFAULT_PATHS } from '@adminjs/common/constants'
 import {
   ADD_NOTICE, ASSETS_INITIALIZE,
   BRANDING_INITIALIZE, DASHBOARD_INITIALIZE, DROP_NOTICE, INITIAL_ROUTE, LOCALE_INITIALIZE,
-  PAGES_INITIALIZE, PATHS_INITIALIZE, RESOURCES_INITIALIZE, ROUTE_CHANGED, SESSION_INITIALIZE, SET_NOTICE_PROGRESS, VERSIONS_INITIALIZE
+  PAGES_INITIALIZE, PATHS_INITIALIZE, RESOURCES_INITIALIZE, ROUTE_CHANGED, SESSION_INITIALIZE, SET_NOTICE_PROGRESS, VERSIONS_INITIALIZE,
 } from './actions'
 
 import { Assets, BrandingOptions, VersionProps } from '../../adminjs-options.interface'
-
-import { CurrentAdmin, Locale, NoticeMessage, PageJSON, ResourceJSON } from '@adminjs/common/interfaces'
-
-import { DEFAULT_PATHS } from '@adminjs/common/constants'
 
 export type DashboardInState = {
   component?: string;
@@ -181,10 +179,10 @@ const noticesReducer = (state: Array<NoticeMessageInState> = [], action: {
     return notices
   }
   case DROP_NOTICE: {
-    return state.filter(notice => notice.id !== (action.data as NoticeArgs).noticeId)
+    return state.filter((notice) => notice.id !== (action.data as NoticeArgs).noticeId)
   }
   case SET_NOTICE_PROGRESS: {
-    return state.map(notice => ({
+    return state.map((notice) => ({
       ...notice,
       progress: notice.id === (action.data as NoticeArgs).noticeId
         ? action.data.progress

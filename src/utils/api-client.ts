@@ -1,12 +1,12 @@
 import {
   ActionParams, BulkActionParams,
-  RecordActionParams, ResourceActionParams
+  RecordActionParams, ResourceActionParams,
 } from '@adminjs/common/utils'
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 /* eslint-disable no-alert */
 import { ActionResponse, BulkActionResponse, RecordActionResponse, RecordJSON } from '@adminjs/common/interfaces'
 
-//import config from '../FrontConfig.json'
+// import config from '../FrontConfig.json'
 
 /**
  * Type of an [axios request]{@link https://github.com/axios/axios/blob/master/index.d.ts#L43}
@@ -67,7 +67,6 @@ export type RecordActionAPIParams = AxiosRequestConfig & RecordActionParams
  */
 export type BulkActionAPIParams = AxiosRequestConfig & BulkActionParams
 
-
 /**
  * Extends {@link AxiosRequestConfig}
  *
@@ -100,15 +99,17 @@ export type GetPageAPIParams = AxiosRequestConfig & {
  * @see https://github.com/axios/axios
  * @hideconstructor
  */
-class ApiClient {
+export class ApiClient {
   private baseURL: string
+
   private paths: {
     rootPath: string,
     loginPath: string,
     logoutPath: string,
   }
+
   private client: AxiosInstance
-  
+
   constructor(config) {
     this.paths = config.paths
     this.baseURL = this.getBaseUrl(config.url)
@@ -116,16 +117,16 @@ class ApiClient {
       baseURL: this.baseURL,
     })
   }
-  
+
   getBaseUrl(url: string): string {
     return [url, this.paths.rootPath].join('')
   }
-    
+
   async getMetadata(): Promise<AxiosResponse<ActionResponse>> {
-    const response = await this.client( {url: `${this.baseURL}/api/metadata`} )
+    const response = await this.client({ url: `${this.baseURL}/api/metadata` })
     return response
   }
-  
+
   /**
    * Search by query string for records in a given resource.
    *
@@ -167,7 +168,7 @@ class ApiClient {
     // checkResponse(response)
     return response
   }
- 
+
   /**
    * Invokes given record {@link Action} on the backend.
    *
@@ -238,9 +239,4 @@ class ApiClient {
     // checkResponse(response)
     return response
   }
-}
-
-export {
-  ApiClient as default,
-  ApiClient,
 }

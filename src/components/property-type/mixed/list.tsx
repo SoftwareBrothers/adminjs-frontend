@@ -14,8 +14,8 @@ export default class List extends React.PureComponent<Props & EditPropertyProps>
   renderItems(): React.ReactChild {
     const { property, ItemComponent } = this.props
     return (
-      <React.Fragment>
-        {property.subProperties.filter(subProperty => !subProperty.isId).map((subProperty) => {
+      <>
+        {property.subProperties.filter((subProperty) => !subProperty.isId).map((subProperty) => {
           const subPropertyWithPath = convertToSubProperty(property, subProperty)
           return (
             <div key={subPropertyWithPath.path}>
@@ -27,13 +27,13 @@ export default class List extends React.PureComponent<Props & EditPropertyProps>
             </div>
           )
         })}
-      </React.Fragment>
+      </>
     )
   }
 
   render(): React.ReactChild {
     const { property, record, resource } = this.props
-    const showAction = record.recordActions.find(a => a.name === 'show')
+    const showAction = record.recordActions.find((a) => a.name === 'show')
 
     if (resource.titleProperty.propertyPath === property.propertyPath && showAction) {
       const h = new ViewHelpers()

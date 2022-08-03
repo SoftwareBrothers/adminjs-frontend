@@ -4,9 +4,9 @@ import {
   Placeholder, TableRow, TableCell, CheckBox, ButtonGroup,
 } from '@adminjs/design-system'
 
+import { ActionJSON, RecordJSON, ResourceJSON, ActionResponse, RecordActionResponse } from '@adminjs/common/interfaces'
 import PropertyType from '../../property-type'
 import { buildActionClickHandler } from '../../../interfaces'
-import { ActionJSON, RecordJSON, ResourceJSON, ActionResponse, RecordActionResponse } from '@adminjs/common/interfaces'
 import { display } from './utils/display'
 
 import mergeRecordResponse from '../../../hooks/use-record/merge-record-response'
@@ -64,7 +64,7 @@ export const RecordInList: React.FC<RecordInListProps> = (props) => {
         params: { resourceId: resource.id, recordId: record.id },
         actionResponseHandler,
         push: navigate,
-        api
+        api,
       })(event)
     }
   }
@@ -77,7 +77,7 @@ export const RecordInList: React.FC<RecordInListProps> = (props) => {
       params: actionParams,
       actionResponseHandler,
       push: navigate,
-      api
+      api,
     })(event)
   )
 
@@ -93,7 +93,6 @@ export const RecordInList: React.FC<RecordInListProps> = (props) => {
     }),
   }]
 
-
   return (
     <TableRow onClick={handleClick} data-id={record.id}>
       <TableCell className={isSelected ? 'selected' : 'not-selected'}>
@@ -104,7 +103,7 @@ export const RecordInList: React.FC<RecordInListProps> = (props) => {
           />
         ) : null}
       </TableCell>
-      {resource.listProperties.map(property => (
+      {resource.listProperties.map((property) => (
         <TableCell
           style={{ cursor: 'pointer' }}
           key={property.propertyPath}

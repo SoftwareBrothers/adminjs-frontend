@@ -1,4 +1,5 @@
 import { Store } from 'redux'
+import { CurrentAdmin } from '@adminjs/common/interfaces'
 import createStore, { ReduxState } from './store'
 import {
   initializeLocale,
@@ -13,9 +14,8 @@ import {
 } from './actions'
 
 import AdminJS from '../../adminjs'
-import { CurrentAdmin } from '@adminjs/common/interfaces'
 import pagesToStore from './pages-to-store'
-//import { getBranding, getAssets } from '../../backend/utils/options-parser/options-parser'
+// import { getBranding, getAssets } from '../../backend/utils/options-parser/options-parser'
 
 export const initializeStore = async (
   admin: AdminJS,
@@ -39,8 +39,8 @@ export const initializeStore = async (
     }),
   ))
 
-  //const branding = await getBranding(admin, currentAdmin)
-  //const assets = await getAssets(admin, currentAdmin)
+  // const branding = await getBranding(admin, currentAdmin)
+  // const assets = await getAssets(admin, currentAdmin)
 
   store.dispatch(initializeBranding(branding || {}))
   store.dispatch(initializeAssets(assets || {}))
@@ -61,6 +61,5 @@ export const initializeStore = async (
   }))
   return store
 }
-
 
 export default initializeStore

@@ -35,7 +35,7 @@ const BulkDelete: React.FC<ActionProps & AddNoticeProps & RouteComponentProps> =
   }
   const handleClick = (): void => {
     setLoading(true)
-    const recordIds = records.map(r => r.id)
+    const recordIds = records.map((r) => r.id)
     api.bulkAction({
       resourceId: resource.id,
       actionName: action.name,
@@ -62,7 +62,7 @@ const BulkDelete: React.FC<ActionProps & AddNoticeProps & RouteComponentProps> =
     })
   }
   return (
-    <React.Fragment>
+    <>
       <DrawerContent>
         {action?.showInDrawer ? <ActionHeader omitActions {...props} /> : null}
         <MessageBox
@@ -72,7 +72,7 @@ const BulkDelete: React.FC<ActionProps & AddNoticeProps & RouteComponentProps> =
         />
         <Table>
           <TableBody>
-            {records.map(record => (
+            {records.map((record) => (
               <TableRow key={record.id}>
                 <TableCell>
                   <PropertyType
@@ -93,7 +93,7 @@ const BulkDelete: React.FC<ActionProps & AddNoticeProps & RouteComponentProps> =
           {translateButton('confirmRemovalMany', resource.id, { count: records.length })}
         </Button>
       </DrawerFooter>
-    </React.Fragment>
+    </>
   )
 }
 

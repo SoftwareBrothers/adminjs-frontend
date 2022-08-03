@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux'
 import { ResourceJSON } from '@adminjs/common/interfaces'
 
-
 import { ReduxState } from '../../store/store'
 
 /**
@@ -16,7 +15,7 @@ import { ReduxState } from '../../store/store'
 const useResource = (resourceId: string): ResourceJSON | undefined => {
   const resources = useSelector((state: ReduxState) => state.resources)
 
-  const foundResource = resources.find(resource => resource.id === resourceId)
+  const foundResource = resources.find((resource) => resource.id === resourceId)
 
   return foundResource
 }

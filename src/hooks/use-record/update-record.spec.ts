@@ -1,8 +1,8 @@
 import { expect } from 'chai'
 import { unflatten } from 'flat'
 
-import updateRecord from './update-record'
 import { RecordJSON } from '@adminjs/common/interfaces'
+import updateRecord from './update-record'
 
 describe('updateRecord', function () {
   const newPropertyName = 'newProperty'
@@ -108,7 +108,7 @@ describe('updateRecord', function () {
     const update = updateRecord(propertyName, value)
     const updatedRecord = update(previousRecord)
 
-    expect(Object.keys(updatedRecord.params).find(key => key === propertyName)).to.be.undefined
+    expect(Object.keys(updatedRecord.params).find((key) => key === propertyName)).to.be.undefined
   })
 
   it('properly sets nulls', function () {

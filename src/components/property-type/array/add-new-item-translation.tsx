@@ -1,8 +1,7 @@
 import React from 'react'
 import { Icon, Box } from '@adminjs/design-system'
-import { useTranslation } from '../../../hooks'
 import { ResourceJSON, PropertyJSON } from '@adminjs/common/interfaces'
-
+import { useTranslation } from '../../../hooks'
 
 type AddNewItemButtonProps = {
   resource: ResourceJSON;
@@ -14,7 +13,8 @@ const AddNewItemButton: React.FC<AddNewItemButtonProps> = (props) => {
   const { translateProperty, translateButton } = useTranslation()
   const label = translateProperty(
     `${property.path}.addNewItem`,
-    resource.id, {
+    resource.id,
+    {
       defaultValue: translateButton('addNewItem', resource.id),
     },
   )

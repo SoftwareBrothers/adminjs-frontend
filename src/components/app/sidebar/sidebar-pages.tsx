@@ -26,7 +26,7 @@ const SidebarPages: React.FC<Props> = (props) => {
     !!location.pathname.match(`/pages/${page.name}`)
   )
 
-  const elements: Array<NavigationElementProps> = pages.map(page => ({
+  const elements: Array<NavigationElementProps> = pages.map((page) => ({
     id: page.name,
     label: page.name,
     isSelected: isActive(page),

@@ -1,8 +1,8 @@
 import React from 'react'
 import { CheckBox, TableHead, TableRow, TableCell } from '@adminjs/design-system'
 
-import PropertyHeader from './property-header'
 import { BasePropertyJSON } from '@adminjs/common/interfaces'
+import PropertyHeader from './property-header'
 import { display } from './utils/display'
 
 /**
@@ -97,7 +97,7 @@ export const RecordsTableHeader: React.FC<RecordsTableHeaderProps> = (props) => 
             />
           ) : null}
         </TableCell>
-        {properties.map(property => (
+        {properties.map((property) => (
           <PropertyHeader
             display={display(property.isTitle)}
             key={property.propertyPath}

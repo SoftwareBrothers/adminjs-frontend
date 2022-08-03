@@ -4,7 +4,7 @@
   "description": "Frontend for AdminJS Core",
   "main": "lib/index.js",
   "scripts": {
-    "lint": "eslint './src/**/*' './*' --ext .ts,.tsx,.js,.jsx",
+    "lint": "eslint src --ext .ts,.tsx,.js,.jsx",
     "build": "babel src --out-dir lib --copy-files --extensions '.ts,.js,.jsx,.tsx'",
     "types": "tsc"
   },

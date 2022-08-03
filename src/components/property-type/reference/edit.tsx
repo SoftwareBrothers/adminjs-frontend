@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect, useContext } from 'react'
 import { FormGroup, FormMessage, SelectAsync } from '@adminjs/design-system'
-import { EditPropertyProps, SelectRecord } from '../base-property-props'
 import { RecordJSON } from '@adminjs/common/interfaces'
+import { EditPropertyProps, SelectRecord } from '../base-property-props'
 import { PropertyLabel } from '../utils/property-label'
 import { ApiContext } from '../../../api-context'
 
@@ -14,7 +14,7 @@ const Edit: FC<CombinedProps> = (props) => {
   const { onChange, property, record } = props
   const { reference: resourceId } = property
   const api = useContext(ApiContext)
-  
+
   if (!resourceId) {
     throw new Error(`Cannot reference resource in property '${property.path}'`)
   }
@@ -28,7 +28,6 @@ const Edit: FC<CombinedProps> = (props) => {
   }
 
   const loadOptions = async (inputValue: string): Promise<SelectRecordEnhanced[]> => {
-    
     const optionRecords = await api.searchRecords({
       resourceId,
       query: inputValue,
@@ -55,7 +54,7 @@ const Edit: FC<CombinedProps> = (props) => {
 
   useEffect(() => {
     if (!selectedValue && selectedId) {
-      setLoadingRecord(c => c + 1)
+      setLoadingRecord((c) => c + 1)
       api.recordAction({
         actionName: 'show',
         resourceId,
@@ -63,7 +62,7 @@ const Edit: FC<CombinedProps> = (props) => {
       }).then(({ data }: any) => {
         setLoadedRecord(data.record)
       }).finally(() => {
-        setLoadingRecord(c => c - 1)
+        setLoadingRecord((c) => c - 1)
       })
     }
   }, [selectedValue, selectedId, resourceId])

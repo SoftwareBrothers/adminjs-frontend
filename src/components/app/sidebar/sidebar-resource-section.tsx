@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { Navigation } from '@adminjs/design-system'
-import { useTranslation } from '../../../hooks/use-translation'
 import { ResourceJSON } from '@adminjs/common/interfaces'
+import { useTranslation } from '../../../hooks/use-translation'
 import allowOverride from '../../../hoc/allow-override'
 import { useNavigationResources } from '../../../hooks'
 
@@ -28,7 +28,6 @@ export type SidebarResourceSectionProps = {
  * @name SidebarResourceSection
  */
 const SidebarResourceSectionOriginal: FC<SidebarResourceSectionProps> = ({ resources }) => {
-
   const elements = useNavigationResources(resources)
 
   const { translateLabel } = useTranslation()

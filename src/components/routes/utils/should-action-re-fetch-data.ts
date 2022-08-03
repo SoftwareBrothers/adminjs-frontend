@@ -1,4 +1,3 @@
-
 import { RecordActionParams, BulkActionParams, ResourceActionParams } from '@adminjs/common/utils'
 
 type AnyActionParams = RecordActionParams & ResourceActionParams & BulkActionParams

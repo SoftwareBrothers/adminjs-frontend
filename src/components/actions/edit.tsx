@@ -2,10 +2,10 @@ import React, { FC, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { DrawerContent, Box, DrawerFooter, Button, Icon } from '@adminjs/design-system'
 
+import { RecordJSON } from '@adminjs/common/interfaces'
 import { ActionProps } from './action.props'
 import ActionHeader from '../app/action-header/action-header'
 import useRecord from '../../hooks/use-record/use-record'
-import { RecordJSON } from '@adminjs/common/interfaces'
 import PropertyType from '../property-type'
 import { appendForceRefresh } from './utils/append-force-refresh'
 import { useTranslation } from '../../hooks/use-translation'
@@ -20,7 +20,7 @@ const Edit: FC<ActionProps> = (props) => {
     loading,
     setRecord,
   } = useRecord(initialRecord, resource.id)
-  
+
   const { translateButton } = useTranslation()
   const navigate = useNavigate()
 
@@ -60,7 +60,7 @@ const Edit: FC<ActionProps> = (props) => {
             onChange={handleChange}
             record={record as RecordJSON}
           />
-        )) : resource.editProperties.map(property => (
+        )) : resource.editProperties.map((property) => (
           <PropertyType
             key={property.propertyPath}
             where="edit"

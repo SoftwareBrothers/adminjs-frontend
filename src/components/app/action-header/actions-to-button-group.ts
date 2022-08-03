@@ -1,7 +1,7 @@
 import { ButtonGroupProps, ButtonInGroupProps } from '@adminjs/design-system'
 
-import { actionHref, buildActionTestId } from '../../../interfaces'
 import { ActionJSON } from '@adminjs/common/interfaces'
+import { actionHref, buildActionTestId } from '../../../interfaces'
 import { DifferentActionParams } from '../../../hooks'
 
 export type actionsToButtonGroupOptions = {
@@ -35,7 +35,7 @@ export const actionsToButtonGroup = (
     const action = button.source
     if (action.parent) {
       const parent: ButtonInGroupProps = memo[action.parent]
-        || buttons.find(btn => btn.source.name === action.parent)
+        || buttons.find((btn) => btn.source.name === action.parent)
         || {
           label: action.parent,
         }

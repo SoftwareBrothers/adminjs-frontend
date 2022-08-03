@@ -1,7 +1,7 @@
 import {
   ButtonCSS,
   ButtonProps,
-  Icon
+  Icon,
 } from '@adminjs/design-system'
 import React from 'react'
 import { Link as RouterLink } from 'react-router-dom'
@@ -10,7 +10,6 @@ import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 import { ViewHelpers } from '@adminjs/common/utils'
 import { ReduxState, RouterProps } from '../../../store'
-
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const StyledLink = styled(({ rounded, ...rest }) => <RouterLink {...rest} />)<ButtonProps>`${ButtonCSS}`
@@ -25,13 +24,12 @@ export const StyledBackButton: React.FC<StyledBackButtonProps> = (props) => {
   const { resourceId, showInDrawer } = props
   const cssCloseIcon = showInDrawer ? 'ChevronRight' : 'ChevronLeft'
 
-  const { from } = useSelector<ReduxState, RouterProps>(state => state.router)
+  const { from } = useSelector<ReduxState, RouterProps>((state) => state.router)
   const { pathname, search } = from
 
   const backButtonUrl = pathname
     ? [pathname, search].join('')
     : h.resourceUrl({ resourceId, search: window.location.search })
-
 
   return (
     <StyledLink

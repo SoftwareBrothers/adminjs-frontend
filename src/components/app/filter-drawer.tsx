@@ -52,8 +52,8 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
     } else {
       setFilter({})
     }
-  }, [params.resourceId]) 
-  
+  }, [params.resourceId])
+
   const handleSubmit = (event: SyntheticEvent): false => {
     event.preventDefault()
     const search = new URLSearchParams(window.location.search)
@@ -69,7 +69,7 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
     navigate(`${location.pathname}?${search.toString()}`)
     return false
   }
-  
+
   const resetFilter = (event: MouseEvent): void => {
     event.preventDefault()
     const filteredSearch = new URLSearchParams()
@@ -77,7 +77,7 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
     for (const key of search.keys()) {
       if (!key.match('filters.')) {
         filteredSearch.set(key, search.get(key) as string)
-      } 
+      }
     }
     const query = filteredSearch.toString() === '' ? `?${filteredSearch.toString()}` : ''
     toggleFilter()
@@ -94,7 +94,7 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
       [propertyName as string]: value,
     })
   }
-  
+
   return (
     <Drawer variant="filter" isHidden={!isVisible} as="form" onSubmit={handleSubmit}>
       <DrawerContent>
@@ -111,7 +111,7 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
           {translateLabel('filters', resource.id)}
         </H3>
         <Box my="x3">
-          {properties.map(property => (
+          {properties.map((property) => (
             <PropertyType
               key={property.propertyPath}
               where="filter"
@@ -122,7 +122,7 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
             />
           ))}
         </Box>
-      </DrawerContent> 
+      </DrawerContent>
       <DrawerFooter>
         <Button variant="primary" size="lg">
           {translateButton('applyChanges', resource.id)}
@@ -136,8 +136,3 @@ export const FilterDrawer: React.FC<FilterProps> = (props) => {
 }
 
 export default FilterDrawer
-
-
-
-
-

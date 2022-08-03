@@ -8,14 +8,14 @@ import { Provider } from 'react-redux'
 import { Switch, Route } from 'react-router-dom'
 import { AxiosResponse } from 'axios'
 
+import { RecordJSON } from '@adminjs/common/interfaces'
+import { TranslateFunctions } from '@adminjs/common/utils'
 import createStore, { ReduxState } from '../../store/store'
 import RecordAction from './record-action'
 import ApiClient from '../../utils/api-client'
-import { RecordJSON } from '@adminjs/common/interfaces'
 
 import TestContextProvider from '../spec/test-context-provider'
 import factory from '../spec/factory'
-import { TranslateFunctions } from '@adminjs/common/utils'
 
 const defaultStore = {
   paths: {},

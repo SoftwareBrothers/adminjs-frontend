@@ -4,11 +4,10 @@
 
 import React, { ReactElement } from 'react'
 
+import { ActionJSON, ActionResponse } from '@adminjs/common/interfaces'
 import { buildActionTestId } from '../../../interfaces'
-import {  ActionJSON, ActionResponse } from '@adminjs/common/interfaces'
 
 import { useAction } from '../../../hooks'
-
 
 /**
  * @alias ActionButtonProps
@@ -65,7 +64,6 @@ export const ActionButton: React.FC<ActionButtonProps> = (props) => {
     'data-testid': buildActionTestId(action),
     href,
   })
-
 
   return WrappedElement
 }

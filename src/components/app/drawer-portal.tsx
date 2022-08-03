@@ -22,7 +22,6 @@ export type DrawerPortalProps = {
 
 const DRAWER_PORTAL_ID = 'drawerPortal'
 
-
 /**
  * Shows all of its children in a Drawer on the right.
  * Instead of rendering it's own {@link Drawer} component it reuses
@@ -45,14 +44,14 @@ export const DrawerPortal: React.FC<DrawerPortalProps> = ({ children, width }) =
   useEffect(() => {
     if (!drawerElement) {
       const DrawerWrapper = (
-        <Drawer id={DRAWER_PORTAL_ID} className="hidden" theme={theme}/>
+        <Drawer id={DRAWER_PORTAL_ID} className="hidden" theme={theme} />
       )
       const innerWrapper = window.document.createElement('div')
       const root = createRoot(window.document.body.appendChild(innerWrapper))
-      root.render( DrawerWrapper )
-    } 
+      root.render(DrawerWrapper)
+    }
   }, [])
-  
+
   useEffect(() => {
     setDrawerElement(portal)
   }, [portal])
@@ -73,7 +72,7 @@ export const DrawerPortal: React.FC<DrawerPortalProps> = ({ children, width }) =
 
   if (!drawerElement) {
     return null
-  } 
+  }
 
   return createPortal(
     children,
@@ -83,7 +82,6 @@ export const DrawerPortal: React.FC<DrawerPortalProps> = ({ children, width }) =
 
 export default DrawerPortal
 
-
-{/* <ThemeProvider theme={theme}>
+{ /* <ThemeProvider theme={theme}>
   <Drawer id={DRAWER_PORTAL_ID} className="hidden" />
-</ThemeProvider>   */}
+</ThemeProvider>   */ }

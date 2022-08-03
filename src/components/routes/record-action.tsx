@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { Loader } from '@adminjs/design-system'
-import BaseActionComponent from '../app/base-action-component'
 import { ActionJSON, RecordJSON, ActionResponse, RecordActionResponse } from '@adminjs/common/interfaces'
+import BaseActionComponent from '../app/base-action-component'
 import { NoResourceError, NoActionError, NoRecordError } from '../app/error-message'
 import Wrapper from './utils/wrapper'
 import { ActionHeader } from '../app'
@@ -11,7 +11,7 @@ import DrawerPortal from '../app/drawer-portal'
 import { ApiContext } from '../../api-context'
 import mergeRecordResponse from '../../hooks/use-record/merge-record-response'
 
-const RecordAction: React.FC = () => { 
+const RecordAction: React.FC = () => {
   const api = useContext(ApiContext)
   const params = useParams()
   const [record, setRecord] = useState<RecordJSON>()
@@ -21,7 +21,7 @@ const RecordAction: React.FC = () => {
   const { actionName, recordId, resourceId } = params
   const resource = useResource(resourceId)
 
-  const action = record && record.recordActions.find(r => r.name === actionName)
+  const action = record && record.recordActions.find((r) => r.name === actionName)
 
   const fetchRecord = (): void => {
     setLoading(true)
@@ -66,7 +66,7 @@ const RecordAction: React.FC = () => {
   const hasDifferentRecord = record && record.id && record.id.toString() !== recordId
 
   if (loading || hasDifferentRecord) {
-    const actionFromResource = resource.actions.find(r => r.name === actionName)
+    const actionFromResource = resource.actions.find((r) => r.name === actionName)
     return actionFromResource?.showInDrawer ? (<DrawerPortal><Loader /></DrawerPortal>) : <Loader />
   }
 

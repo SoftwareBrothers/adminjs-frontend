@@ -1,6 +1,5 @@
 import { RecordJSON } from '@adminjs/common/interfaces'
 
-
 /**
  * Result of the {@link useSelectedRecords} hook.
  * It is a object containing multiple tools you can use in your component

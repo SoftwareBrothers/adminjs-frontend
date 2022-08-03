@@ -10,7 +10,6 @@ import '../../spec/record-json.factory'
 
 import { RecordJSON, PropertyJSON, ResourceJSON } from '@adminjs/common/interfaces'
 
-
 const renderTestSubject = (property, record, resource): RenderResult => render(
   <TestContextProvider>
     <Show

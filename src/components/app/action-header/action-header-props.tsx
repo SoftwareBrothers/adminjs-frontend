@@ -1,6 +1,5 @@
 import { ActionResponse, ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
 
-
 /**
  * @memberof ActionHeader
  * @alias ActionHeaderProps

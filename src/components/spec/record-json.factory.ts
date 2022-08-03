@@ -1,7 +1,6 @@
 import factory from 'factory-girl'
 import './action-json.factory'
-import {  ActionJSON, RecordJSON } from '@adminjs/common/interfaces'
-
+import { ActionJSON, RecordJSON } from '@adminjs/common/interfaces'
 
 factory.define<RecordJSON>('RecordJSON', Object, {
   params: {
@@ -10,12 +9,11 @@ factory.define<RecordJSON>('RecordJSON', Object, {
   },
   populated: {},
   errors: {},
-  id: factory.sequence('JSONRecord.id', n => `someId${n}`),
-  title: factory.sequence('JSONRecord.id', n => `someTitle${n}`),
+  id: factory.sequence('JSONRecord.id', (n) => `someId${n}`),
+  title: factory.sequence('JSONRecord.id', (n) => `someTitle${n}`),
   recordActions: [],
   bulkActions: [],
 })
-
 
 factory.extend<RecordJSON>('RecordJSON', 'RecordJSON.total', {
   // params set for properties from ResourceJSON.total factory's properties

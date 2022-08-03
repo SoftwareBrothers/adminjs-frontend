@@ -17,7 +17,7 @@ export function callActionApi<K extends ActionResponse>(
       throw new Error('You have to specify "recordId" for record action')
     }
     promise = api.recordAction({
-      resourceId, actionName: action.name, recordId, search
+      resourceId, actionName: action.name, recordId, search,
     }) as any
     break
   case 'resource':

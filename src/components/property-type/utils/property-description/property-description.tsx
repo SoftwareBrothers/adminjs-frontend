@@ -2,7 +2,6 @@ import { Box, Icon, Tooltip } from '@adminjs/design-system'
 import React from 'react'
 import { PropertyJSON } from '@adminjs/common/interfaces'
 
-
 export type PropertyDescriptionProps = {
   property: PropertyJSON;
 }

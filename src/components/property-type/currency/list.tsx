@@ -1,7 +1,6 @@
 import React, { PureComponent, ReactChild } from 'react'
-import formatValue from './format-value'
 import { RecordJSON, PropertyJSON } from '@adminjs/common/interfaces'
-
+import formatValue from './format-value'
 
 interface Props {
   property: PropertyJSON;

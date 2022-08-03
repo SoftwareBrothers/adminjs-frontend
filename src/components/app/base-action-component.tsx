@@ -1,10 +1,10 @@
 import { Link, MessageBox } from '@adminjs/design-system'
 import React from 'react'
 import { Trans } from 'react-i18next'
+import { DOCS } from '@adminjs/common/constants'
 import { useTranslation } from '../../hooks'
 import { actions } from '../actions'
 import { ActionProps } from '../actions/action.props'
-import { DOCS } from '@adminjs/common/constants'
 import ErrorBoundary from './error-boundary'
 
 declare const AdminJS: {
@@ -66,7 +66,7 @@ export const BaseActionComponent: React.FC<ActionProps> = (props) => {
   const { translateMessage } = useTranslation()
 
   let Action = actions[action.name]
-  
+
   if (action.component) {
     Action = AdminJS.UserComponents[action.component]
   }

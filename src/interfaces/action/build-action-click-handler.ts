@@ -1,10 +1,10 @@
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-undef */
 /* eslint-disable no-alert */
+import { ActionJSON } from '@adminjs/common/interfaces'
 import { DifferentActionParams, useActionResponseHandler } from '../../hooks'
 import { actionHasComponent } from './action-has-component'
 import { actionHref } from './action-href'
-import { ActionJSON } from '@adminjs/common/interfaces'
 import { buildActionCallApiTrigger } from './build-action-api-call-trigger'
 
 export type BuildActionClickOptions = {
@@ -28,7 +28,7 @@ export const buildActionClickHandler = (
     const href = actionHref(action, params)
 
     const callApi = buildActionCallApiTrigger({
-      params, action, actionResponseHandler, api
+      params, action, actionResponseHandler, api,
     })
 
     if (action.guard && !confirm(action.guard)) {

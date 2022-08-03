@@ -3,9 +3,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { ViewHelpers } from '@adminjs/common/utils'
-import { useTranslation } from '../../hooks/use-translation'
 import { RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
-
+import { useTranslation } from '../../hooks/use-translation'
 
 export const BreadcrumbLink = styled(Link)`
   color: ${({ theme }): string => theme.colors.grey40};
@@ -77,7 +76,7 @@ export const Breadcrumbs: React.FC<BreadcrumbProps> = (props) => {
   const { resource, record, actionName } = props
 
   const listAction = resource.resourceActions.find(({ name }) => name === 'list')
-  const action = resource.actions.find(a => a.name === actionName)
+  const action = resource.actions.find((a) => a.name === actionName)
   const h = new ViewHelpers()
   const { translateLabel: tl } = useTranslation()
 

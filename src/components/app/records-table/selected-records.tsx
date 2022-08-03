@@ -1,8 +1,8 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import { TableCaption, Title, ButtonGroup, Box } from '@adminjs/design-system'
 import { useNavigate } from 'react-router-dom'
-import { buildActionClickHandler } from '../../../interfaces'
 import { ActionJSON, RecordJSON, ResourceJSON } from '@adminjs/common/interfaces'
+import { buildActionClickHandler } from '../../../interfaces'
 import getBulkActionsFromRecords from './utils/get-bulk-actions-from-records'
 import { useActionResponseHandler, useTranslation } from '../../../hooks'
 import { actionsToButtonGroup } from '../action-header/actions-to-button-group'
@@ -24,7 +24,7 @@ export const SelectedRecords: React.FC<SelectedRecordsProps> = (props) => {
     return null
   }
 
-  const params = { resourceId: resource.id, recordIds: selectedRecords.map(records => records.id) }
+  const params = { resourceId: resource.id, recordIds: selectedRecords.map((records) => records.id) }
 
   const handleActionClick = (event, sourceAction: ActionJSON): void => (
     buildActionClickHandler({
@@ -32,7 +32,7 @@ export const SelectedRecords: React.FC<SelectedRecordsProps> = (props) => {
       params,
       actionResponseHandler,
       push: navigate,
-      api
+      api,
     })(event)
   )
 

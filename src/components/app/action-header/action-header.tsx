@@ -2,12 +2,12 @@
 import { Badge, Box, ButtonGroup, cssClass, H2, H3 } from '@adminjs/design-system'
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { ActionJSON } from '@adminjs/common/interfaces'
 import Breadcrumbs from '../breadcrumbs'
 import { ActionHeaderProps } from './action-header-props'
 import { actionsToButtonGroup } from './actions-to-button-group'
 import { StyledBackButton } from './styled-back-button'
 
-import { ActionJSON } from '@adminjs/common/interfaces'
 import { ApiContext } from '../../../api-context'
 import { useActionResponseHandler, useTranslation } from '../../../hooks'
 import { buildActionClickHandler } from '../../../interfaces/action'
@@ -41,22 +41,21 @@ export const ActionHeader: React.FC<ActionHeaderProps> = (props) => {
   const resourceId = resource.id
   const params = { resourceId, recordId: record?.id }
 
-  const handleActionClick = (event, sourceAction: ActionJSON): any | Promise<any> =>  (
+  const handleActionClick = (event, sourceAction: ActionJSON): any | Promise<any> => (
     buildActionClickHandler({
       action: sourceAction,
       params,
       actionResponseHandler,
       push: navigate,
-      api
+      api,
     })(event)
   )
 
-
   const actionButtons = actionsToButtonGroup({
     actions: record
-      ? record.recordActions.filter(ra => !action || action.name !== ra.name)
+      ? record.recordActions.filter((ra) => !action || action.name !== ra.name)
       // only new action should be seen in regular "Big" actions place
-      : resource.resourceActions.filter(ra => ra.name === 'new' && (!action || action.name !== ra.name)),
+      : resource.resourceActions.filter((ra) => ra.name === 'new' && (!action || action.name !== ra.name)),
     params,
     handleClick: handleActionClick,
   })
@@ -72,7 +71,7 @@ export const ActionHeader: React.FC<ActionHeaderProps> = (props) => {
   // list and new actions are special and are are always
   const customResourceButtons = actionsToButtonGroup({
     actions: action.showResourceActions
-      ? resource.resourceActions.filter(ra => !['list', 'new'].includes(ra.name))
+      ? resource.resourceActions.filter((ra) => !['list', 'new'].includes(ra.name))
       : [],
     params: { resourceId },
     handleClick: handleActionClick,
@@ -80,7 +79,7 @@ export const ActionHeader: React.FC<ActionHeaderProps> = (props) => {
 
   const title = action ? action.label : resource.name
   const isList = action && action.name === 'list'
-  const listAction = resource.resourceActions.find(ra => ra.name === 'list')
+  const listAction = resource.resourceActions.find((ra) => ra.name === 'list')
 
   // styled which differs if action header is in the drawer or not
   const cssIsRootFlex = !action.showInDrawer

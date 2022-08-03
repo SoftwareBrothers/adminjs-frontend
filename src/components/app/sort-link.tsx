@@ -4,7 +4,6 @@ import { cssClass, Icon } from '@adminjs/design-system'
 import { BasePropertyJSON } from '@adminjs/common/interfaces'
 import withRouter from '../../hoc/with-router'
 
-
 export type SortLinkProps = {
   property: BasePropertyJSON;
   direction?: 'asc' | 'desc';

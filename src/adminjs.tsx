@@ -7,22 +7,22 @@ import { BrowserRouter } from 'react-router-dom'
 import { ThemeProvider } from 'styled-components'
 import App from './components/application'
 import createStore from './store/store'
-let store =createStore()
 
-export const AdminJS = (props) => {
-  const { api }  = props 
+let store = createStore()
+
+export function AdminJS(props) {
+  const { api } = props
   const [config, setConfig] = useState({})
-  
-  useEffect( ()=> {
+
+  useEffect(() => {
     api.getMetadata()
-      .then( response => {
+      .then((response) => {
         setConfig(response.data)
         store = createStore(response.data)
         initializeLocale(response.data.locale)
       })
-  },[])
-  
-  
+  }, [])
+
   const initializeLocale = (locale) => {
     i18n.use(initReactI18next).init({
       resources: {
@@ -32,9 +32,9 @@ export const AdminJS = (props) => {
       },
       lng: locale.language,
       interpolation: { escapeValue: false },
-    }) 
+    })
   }
-  
+
   return (
     Object.keys(config).length === 0 ? null : (
       <Provider store={store}>

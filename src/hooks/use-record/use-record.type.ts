@@ -1,7 +1,7 @@
 import { AxiosResponse } from 'axios'
 
-import { OnPropertyChange } from '../../components/property-type/base-property-props'
 import { RecordActionResponse, RecordJSON } from '@adminjs/common/interfaces'
+import { OnPropertyChange } from '../../components/property-type/base-property-props'
 
 /**
  * Custom options passed to useRecord as the third argument.

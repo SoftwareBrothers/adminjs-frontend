@@ -2,6 +2,7 @@ import React, { useMemo } from 'react'
 import { ReactComponentLike } from 'prop-types'
 import { Box } from '@adminjs/design-system'
 
+import { PropertyJSON, PropertyType } from '@adminjs/common/interfaces'
 import ErrorBoundary from '../app/error-boundary'
 
 import * as ArrayType from './array'
@@ -17,8 +18,6 @@ import * as password from './password'
 import * as currency from './currency'
 import * as phone from './phone'
 import { BasePropertyComponentProps } from './base-property-props'
-import { PropertyJSON, PropertyType } from '@adminjs/common/interfaces'
-
 
 let globalAny: any = {}
 

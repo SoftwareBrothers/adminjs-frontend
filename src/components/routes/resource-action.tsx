@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, RouteComponentProps } from 'react-router-dom'
 
-import { RouteComponentProps } from 'react-router-dom'
-import BaseActionComponent from '../app/base-action-component'
 import { ResourceJSON } from '@adminjs/common/interfaces'
+import { ResourceActionParams } from '@adminjs/common/utils'
+import BaseActionComponent from '../app/base-action-component'
 
 import { ReduxState } from '../../store/store'
 import { NoResourceError, NoActionError } from '../app/error-message'
-import { ResourceActionParams } from '@adminjs/common/utils'
 import { ActionHeader } from '../app'
 import Wrapper from './utils/wrapper'
 import DrawerPortal from '../app/drawer-portal'
@@ -27,11 +26,11 @@ const ResourceAction: React.FC<Props> = (props) => {
   const [filterVisible, setFilterVisible] = useState(false)
   const [tag, setTag] = useState('')
 
-  const resource = resources.find(r => r.id === resourceId)
+  const resource = resources.find((r) => r.id === resourceId)
   if (!resource) {
     return (<NoResourceError resourceId={resourceId} />)
   }
-  const action = resource.resourceActions.find(r => r.name === actionName)
+  const action = resource.resourceActions.find((r) => r.name === actionName)
   if (!action) {
     return (<NoActionError resourceId={resourceId} actionName={actionName} />)
   }
